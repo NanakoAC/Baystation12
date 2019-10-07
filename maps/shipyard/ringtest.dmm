@@ -273,30 +273,28 @@
 "fm" = (/obj/machinery/power/generator{anchored = 1},/obj/structure/cable/orange{icon_state = "0-1"; dir = 4},/turf/simulated/floor,/area/security/prison)
 "fn" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan{icon_state = "intact"; dir = 4},/obj/structure/cable/orange{icon_state = "1-2"; dir = 1},/turf/simulated/floor,/area/security/prison)
 "fo" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan{icon_state = "intact"; dir = 4},/turf/simulated/floor,/area/security/prison)
-"fp" = (/obj/machinery/atmospherics/pipe/manifold/visible/yellow{icon_state = "map"; dir = 1},/turf/simulated/floor,/area/security/prison)
+"fp" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{dir = 10},/turf/simulated/floor,/area/security/prison)
 "fq" = (/obj/machinery/light{icon_state = "tube1"; dir = 8},/turf/simulated/floor,/area/security/prison)
 "fr" = (/obj/machinery/atmospherics/valve,/turf/simulated/floor,/area/security/prison)
-"fs" = (/obj/machinery/atmospherics/pipe/manifold/visible/yellow{dir = 8},/turf/simulated/floor,/area/security/prison)
+"fs" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow,/turf/simulated/floor,/area/security/prison)
 "ft" = (/obj/machinery/power/apc/super/critical{icon_state = "apc0"; dir = 4},/turf/simulated/floor,/area/centcom)
 "fu" = (/obj/machinery/atmospherics/pipe/manifold/visible/cyan{icon_state = "map"; dir = 4},/turf/space,/area/space)
 "fv" = (/obj/machinery/atmospherics/pipe/manifold/visible/yellow{icon_state = "map"; dir = 4},/turf/simulated/floor,/area/security/prison)
-"fw" = (/obj/machinery/atmospherics/binary/pump/high_power/on/max_pressure{icon_state = "map_on"; dir = 4},/turf/simulated/floor,/area/security/prison)
-"fx" = (/obj/machinery/atmospherics/pipe/manifold/visible/yellow{icon_state = "map"; dir = 1},/obj/machinery/meter,/turf/simulated/floor,/area/security/prison)
+"fw" = (/obj/machinery/atmospherics/pipe/manifold/visible/yellow{dir = 8},/obj/machinery/meter,/turf/simulated/floor,/area/security/prison)
+"fx" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{icon_state = "intact"; dir = 8},/obj/machinery/meter,/turf/simulated/floor,/area/security/prison)
 "fy" = (/obj/structure/cable/orange{icon_state = "2-4"; dir = 4},/turf/simulated/floor,/area/security/prison)
 "fz" = (/obj/machinery/atmospherics/binary/circulator{anchored = 1; dir = 8; icon_state = "circ-unassembled"},/turf/simulated/floor,/area/security/prison)
 "fA" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{icon_state = "intact"; dir = 5},/turf/simulated/floor,/area/security/prison)
 "fB" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{dir = 6},/turf/simulated/floor,/area/security/prison)
-"fC" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{dir = 10},/obj/machinery/meter,/turf/simulated/floor,/area/security/prison)
-"fD" = (/turf/simulated/floor,/area/centcom)
+"fC" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{icon_state = "intact"; dir = 4},/obj/machinery/meter,/turf/simulated/floor,/area/security/prison)
+"fD" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{icon_state = "intact"; dir = 1},/obj/machinery/meter,/turf/simulated/floor,/area/security/prison)
 "fE" = (/obj/machinery/atmospherics/binary/pump/high_power/on/max_pressure{icon_state = "map_on"; dir = 8},/turf/simulated/floor,/area/security/prison)
-"fF" = (/obj/machinery/atmospherics/binary/passive_gate/on,/obj/machinery/light{icon_state = "tube1"; dir = 8},/turf/simulated/floor,/area/security/prison)
-"fG" = (/obj/machinery/atmospherics/binary/pump/high_power/on/max_pressure{icon_state = "map_on"; dir = 1},/turf/simulated/floor,/area/security/prison)
-"fH" = (/obj/machinery/atmospherics/unary/heater{internal_volume = 5000; max_power_rating = 200000; max_temperature = 6000; name = "Faux Nuclear Reactor"; set_temperature = 5000},/turf/simulated/floor,/area/centcom)
+"fF" = (/obj/machinery/atmospherics/pipe/manifold/visible/yellow,/turf/simulated/floor,/area/security/prison)
+"fG" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{icon_state = "intact"; dir = 4},/turf/simulated/floor,/area/security/prison)
+"fH" = (/obj/machinery/atmospherics/unary/heater{internal_volume = 5000; max_power_rating = 2e+008; max_temperature = 6000; name = "Faux Nuclear Reactor"; set_temperature = 5000},/turf/simulated/floor,/area/centcom)
 "fI" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{dir = 9},/turf/simulated/floor,/area/security/prison)
 "fJ" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow,/obj/machinery/meter,/turf/simulated/floor,/area/security/prison)
-"fK" = (/obj/machinery/light,/turf/simulated/floor,/area/security/prison)
-"fL" = (/obj/machinery/atmospherics/unary/tank/hydrogen{connect_dir_type = 1},/turf/simulated/floor,/area/security/prison)
-"fM" = (/obj/machinery/atmospherics/portables_connector{icon_state = "map_connector"; dir = 1},/turf/simulated/floor,/area/security/prison)
+"fK" = (/obj/machinery/light,/obj/machinery/atmospherics/pipe/simple/visible/yellow{dir = 9},/turf/simulated/floor,/area/security/prison)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -371,14 +369,14 @@ aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabetfqeAeLeXeQeAeAeAeHeTczdfdgdfdhdidididhdidididh
 aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeWeAeAeLeYeSeAeAeAeHeAcAcHdkcGdididhdidididhdidicGdlcHcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
 aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeWeAeAeLeAfreAeAeMfffgcAdmdndodidhdidhdidhdidhdidpdqdrcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
 aCaCaCaCaCaCaCeJeJeJeJeJeJeJeJeKfhfofEfnfoeSeAeAeAeAeAcAdsdtdxdididhdidididhdididxducGcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeUeVeVeVeVeVeVeVfuetfqeAeLeAeZeAeAeAeAeTczdvdwczdydididididididieqczdzdvczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeBeBeBeBeBeBeBeBfcfhfofafbfdfefieAeAeAeAcAcHdAerdididBdBdBdBdBdidierdCcHcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeWeAeAfyfmeAeAeAeAeAeAcAdmdDdEdidFdGdGdGdGdGdHdidIdJdrcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeWfBfpfxfzfCfHfDfDfDftcAdsdtcGejdFdGdKdKdKdGdHejcGdudscAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabetfFfGfreAfsfIeAeAeAeTczcAdLcRczdMdGdKdKdKdGdGczcAdNcAczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabexfsfvfAfwfIeAeAeAeAeAcAdidOdPcAdQdRdKdSdKdTdUcAdVdWdXcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeJeJeJeJeJeJeJeJabexfJfGeAeAeAeAeAeAeFeAcAdYdZeaebecedecececeeecebefegehcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCfjfkfkfkfkfkfkflabexfLfMeAfKeAeAfKeAeFeFcAeiejekcAelememememememcAeneoepcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeUeVeVeVeVeVeVeVfuetfqeAeLfieZeAeAeAeAeTczdvdwczdydididididididieqczdzdvczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeBeBeBeBeBeBeBeBfcfhfofafbfdfeeAeAeAeAeAcAcHdAerdididBdBdBdBdBdidierdCcHcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeWeAeAfyfmeAeCeIeAeAeAcAdmdDdEdidFdGdGdGdGdGdHdidIdJdrcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeWeAeAfBfzfpfseQeAeAftcAdsdtcGejdFdGdKdKdKdGdHejcGdudscAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeteAeAfJeAfsfwfveAeAeTczcAdLcRczdMdGdKdKdKdGdGczcAdNcAczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabexfBfxeAfCfIeXeQeAeAeAcAdidOdPcAdQdRdKdSdKdTdUcAdVdWdXcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeJeJeJeJeJeJeJeJabexfsfHfDfBfafFfveAeFeAcAdYdZeaebecedecececeeecebefegehcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCfjfkfkfkfkfkfkflabexfAfFfFfFfEfGfKeAeFeFcAeiejekcAelememememememcAeneoepcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
 aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCabetexexexetexexetexexexczcAcAcAczcAcAcAczcAcAcAczcAcAcAczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
 aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCababababababababababababababababababababababababababababababaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
 aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCababababababababababababababababababababababababababababababaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
