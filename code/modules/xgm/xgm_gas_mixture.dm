@@ -1,5 +1,5 @@
 /datum/gas_mixture
-	//Associative list of gas moles.
+	//Associative list of gas moles. in the format gas_id = number_of_moles
 	//Gases with 0 moles are not tracked and are pruned by update_values()
 	var/list/gas = list()
 	//Temperature in Kelvin of this gas mix.
@@ -165,15 +165,8 @@
 #define SPECIFIC_ENTROPY_VACUUM		150000
 
 
-//Returns the ideal gas specific entropy of the whole mix. This is the entropy per mole of /mixed/ gas.
-/datum/gas_mixture/proc/specific_entropy()
-	if (!gas.len || total_moles == 0)
-		return SPECIFIC_ENTROPY_VACUUM
 
-	. = 0
-	for(var/g in gas)
-		. += gas[g] * specific_entropy_gas(g)
-	. /= total_moles
+
 
 
 /*
@@ -187,6 +180,17 @@
 	So returning a constant/(partial pressure) would probably do what most players expect. Although the version I have implemented below is a bit more nuanced than simply 1/P in that it scales in a way
 	which is bit more realistic (natural log), and returns a fairly accurate entropy around room temperatures and pressures.
 */
+//Returns the ideal gas specific entropy of the whole mix. This is the entropy per mole of /mixed/ gas.
+/datum/gas_mixture/proc/specific_entropy()
+	if (!gas.len || total_moles == 0)
+		return SPECIFIC_ENTROPY_VACUUM
+
+	. = 0
+	for(var/g in gas)
+		. += gas[g] * specific_entropy_gas(g)
+	. /= total_moles
+
+
 /datum/gas_mixture/proc/specific_entropy_gas(var/gasid)
 	if (!(gasid in gas) || gas[gasid] == 0)
 		return SPECIFIC_ENTROPY_VACUUM	//that gas isn't here
@@ -204,24 +208,30 @@
 
 
 
-//Returns the ideal gas specific entropy of the whole mix. This is the entropy per mole of /mixed/ gas.
-/datum/gas_mixture/proc/individual_constant()
+
+//Returns the averaged individual gas constant of the whole mix.
+//The average is weighted by moles
+/datum/gas_mixture/proc/individual_gas_constant_average()
 	if (!gas.len || total_moles == 0)
 		return 0
 
 	. = 0
+	var/list/values = list()
+	var/list/weights = list()
 	for(var/g in gas)
-		. += gas[g] * individual_constant_gas(g)
-	. /= total_moles
+		values += individual_gas_constant(g)
+		weights += gas[g]
+	return weighted_average(values, weights)
 
 
-/datum/gas_mixture/proc/individual_constant_gas(var/gasid)
+/datum/gas_mixture/proc/individual_gas_constant(var/gasid)
 	if (!(gasid in gas) || gas[gasid] == 0)
 		return 0	//that gas isn't here
 
-	//group_multiplier gets divided out in volume/gas[gasid] - also, V/(m*T) = R/(partial pressure)
-	var/molar_mass = gas_data.molar_mass[gasid]
-	return R_IDEAL_GAS_EQUATION * ( log( (IDEAL_GAS_ENTROPY_CONSTANT*volume/(gas[gasid] * safe_temp)) * (molar_mass*specific_heat*safe_temp)**(2/3) + 1 ) +  15 )
+	return get_individual_gas_constant(gasid)
+
+
+
 
 
 
@@ -234,6 +244,11 @@
 			gas -= g
 		else
 			total_moles += gas[g]
+
+
+
+
+
 
 
 //Returns the pressure of the gas mix.  Only accurate if there have been no gas modifications since update_values() has been called.

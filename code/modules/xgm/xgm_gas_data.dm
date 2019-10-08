@@ -106,3 +106,8 @@
 	if(gas_data.tile_overlay[gas_id])
 		icon_state = gas_data.tile_overlay[gas_id]
 	color = gas_data.tile_overlay_color[gas_id]
+
+
+/proc/get_individual_gas_constant(var/gas_id)
+	var/molar_mass = gas_data.molar_mass[gas_id]
+	return (molar_mass * UNIVERSAL_GAS_CONSTANT)

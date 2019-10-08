@@ -749,3 +749,24 @@ proc/dd_sortedTextList(list/incoming)
 	for(var/key in L)
 		if(ispath(T, key))
 			return key
+
+//Takes a list of numbers, returns their total
+/proc/sum(var/list/L)
+	.=0
+	for (var/a in L)
+		if (isnum(a))
+			.+=a
+
+
+//Takes two lists of numbers. These must be of equal length and paired: EG, values[1] corresponds to weights[1]
+//The result is the average of the values list, with each of those values having its contribution weighted by the corresponding entry in the weights list
+/proc/weighted_average(var/list/values, var/list/weights)
+	//Phase 1: Sum the weights
+	var/total_weight = sum(weights)
+
+	//Phase 2: Reduce multiply values by their normalised weight
+	for (var/i = 1; i <= values.len; i++)
+		values[i] = (values[i] * (weights[i] / total_weight))
+
+	//Phase 3: Return the sum of the reduced values
+	return sum(values)
