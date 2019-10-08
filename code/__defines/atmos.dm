@@ -19,6 +19,8 @@
 
 #define HUMAN_HEAT_CAPACITY 280000 //J/K For 80kg person
 
+
+
 #define SOUND_MINIMUM_PRESSURE 10
 
 #define PRESSURE_DAMAGE_COEFFICIENT 4   // The amount of pressure damage someone takes is equal to (pressure / HAZARD_HIGH_PRESSURE)*PRESSURE_DAMAGE_COEFFICIENT, with the maximum of MAX_PRESSURE_DAMAGE.
