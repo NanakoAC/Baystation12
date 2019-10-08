@@ -301,8 +301,14 @@
 				node1 = target
 				break
 	for(var/obj/machinery/atmospherics/target in get_step(src,node2_dir))
+		if (istype(target, /obj/machinery/atmospherics/binary/pump/turbo))
+			world << "Attempting to connect to [jumplink(target)]"
 		if(target.initialize_directions & get_dir(target,src))
+			if (istype(target, /obj/machinery/atmospherics/binary/pump/turbo))
+				world << "passed initialise check"
 			if (check_connect_types(target,src))
+				if (istype(target, /obj/machinery/atmospherics/binary/pump/turbo))
+					world << "passed check connect types check"
 				node2 = target
 				break
 

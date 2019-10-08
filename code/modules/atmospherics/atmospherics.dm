@@ -70,7 +70,7 @@ Pipelines + Other Objects -> Pipe network
 
 /obj/machinery/atmospherics/proc/add_underlay(var/turf/T, var/obj/machinery/atmospherics/node, var/direction, var/icon_connect_type)
 	if(node)
-		if(!T.is_plating() && node.level == 1 && istype(node, /obj/machinery/atmospherics/pipe))			
+		if(!T.is_plating() && node.level == 1 && istype(node, /obj/machinery/atmospherics/pipe))
 			underlays += icon_manager.get_atmos_icon("underlay", direction, color_cache_name(node), "down" + icon_connect_type)
 		else
 			underlays += icon_manager.get_atmos_icon("underlay", direction, color_cache_name(node), "intact" + icon_connect_type)
@@ -143,7 +143,7 @@ obj/machinery/atmospherics/proc/check_connect_types(obj/machinery/atmospherics/a
 	return null
 
 // returns all pipe's endpoints. You can override, but you may then need to use a custom /item/pipe constructor.
-/obj/machinery/atmospherics/proc/get_initialze_directions()
+/obj/machinery/atmospherics/proc/get_initialize_directions()
 	return base_pipe_initialize_directions(dir, connect_dir_type)
 
 /proc/base_pipe_initialize_directions(dir, connect_dir_type)
@@ -164,7 +164,7 @@ obj/machinery/atmospherics/proc/check_connect_types(obj/machinery/atmospherics/a
 
 /obj/machinery/atmospherics/set_dir(new_dir)
 	. = ..()
-	initialize_directions = get_initialze_directions()
+	initialize_directions = get_initialize_directions()
 
 // Used by constructors. Shouldn't generally be called from elsewhere.
 /obj/machinery/proc/set_initial_level()
