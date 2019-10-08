@@ -92,8 +92,8 @@ without generating turbine power, using the pressure regulator framework.
 	if(node3 && node4)
 		return
 
-	var/node3_connect = turn(dir, -90)
-	var/node4_connect = turn(dir, 90)
+	var/node3_connect = turn(dir, 90)
+	var/node4_connect = turn(dir, -90)
 
 	for(var/obj/machinery/atmospherics/target in get_step(src,node3_connect))
 		if(target.initialize_directions & get_dir(target,src))
