@@ -7,7 +7,7 @@
 	density = 1
 
 	var/efficiency = 0.4
-	var/kin_energy = 0
+	var/kinetic_energy = 0
 	var/datum/gas_mixture/air_in = new
 	var/datum/gas_mixture/air_out = new
 	var/volume_ratio = 0.2
@@ -49,10 +49,10 @@
 	Process()
 		..()
 		if(anchored && !(stat&BROKEN))
-			kin_energy *= 1 - kin_loss
+			kinetic_energy *= 1 - kin_loss
 			dP = max(air_in.return_pressure() - air_out.return_pressure(), 0)
 			if(dP > 10)
-				kin_energy += 1/ADIABATIC_EXPONENT * dP * air_in.volume * (1 - volume_ratio**ADIABATIC_EXPONENT) * efficiency
+				kinetic_energy += 1/ADIABATIC_EXPONENT * dP * air_in.volume * (1 - volume_ratio**ADIABATIC_EXPONENT) * efficiency
 				air_in.temperature *= volume_ratio**ADIABATIC_EXPONENT
 
 				var/datum/gas_mixture/air_all = new
@@ -74,11 +74,11 @@
 		overlays.Cut()
 		if (dP > 10)
 			overlays += image('icons/obj/pipeturbine.dmi', "moto-turb")
-		if (kin_energy > 100000)
+		if (kinetic_energy > 100000)
 			overlays += image('icons/obj/pipeturbine.dmi', "low-turb")
-		if (kin_energy > 500000)
+		if (kinetic_energy > 500000)
 			overlays += image('icons/obj/pipeturbine.dmi', "med-turb")
-		if (kin_energy > 1000000)
+		if (kinetic_energy > 1000000)
 			overlays += image('icons/obj/pipeturbine.dmi', "hi-turb")
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -277,6 +277,6 @@
 	if(!turbine || !anchored || stat & (BROKEN))
 		return
 
-	var/power_generated = kin_to_el_ratio * turbine.kin_energy
-	turbine.kin_energy -= power_generated
+	var/power_generated = kin_to_el_ratio * turbine.kinetic_energy
+	turbine.kinetic_energy -= power_generated
 	add_avail(power_generated)

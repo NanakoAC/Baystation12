@@ -256,7 +256,7 @@
 
 	src.blocked = 0
 
-/obj/machinery/computer/arcade/proc/explode()
+/obj/machinery/computer/arcade/explode()
 	explosion(loc, 0, 1, 2, 3)
 	qdel(src)
 

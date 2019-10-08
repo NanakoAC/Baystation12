@@ -443,6 +443,13 @@
 	//get the number of moles that would have to be transfered to bring sink to the target pressure
 	return pressure_delta*output_volume/(air_temperature * R_IDEAL_GAS_EQUATION)
 
+
+//Calculates the APPROXIMATE amount of moles that we can transfer from source to sink using a specified wattage of power
+/proc/calculate_transfer_moles_from_power(datum/gas_mixture/source, datum/gas_mixture/sink, var/pumping_power)
+	var/power_per_mole = calculate_specific_power(source, sink)
+	return pumping_power / power_per_mole
+
+
 //Calculates the APPROXIMATE amount of moles that would need to be transferred to bring source and sink to the same pressure
 /proc/calculate_equalize_moles(datum/gas_mixture/source, datum/gas_mixture/sink)
 	if(source.temperature == 0) return 0

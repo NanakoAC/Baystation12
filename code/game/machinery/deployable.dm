@@ -92,7 +92,7 @@
 		else
 			return 0
 
-	proc/explode()
+	explode()
 
 		visible_message("<span class='danger'>[src] blows apart!</span>")
 		var/turf/Tsec = get_turf(src)

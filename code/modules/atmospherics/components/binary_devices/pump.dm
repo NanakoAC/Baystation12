@@ -25,7 +25,7 @@ Thus, the two variables affect pump operation are set in New():
 	//var/max_volume_transfer = 10000
 
 	use_power = POWER_USE_OFF
-	idle_power_usage = 150		//internal circuitry, friction losses and stuff
+	idle_power_usage = 0		//internal circuitry, friction losses and stuff
 	power_rating = 30000			// 30000 W ~ 40 HP
 
 	var/max_pressure_setting = MAX_PUMP_PRESSURE
@@ -67,11 +67,15 @@ Thus, the two variables affect pump operation are set in New():
 /obj/machinery/atmospherics/binary/pump/hide(var/i)
 	update_underlays()
 
+//A wrapper on get_transfer_moles so it can be overridden
+/obj/machinery/atmospherics/binary/pump/proc/pump_get_transfer_moles(air1, air2, pressure_delta, sink_mod)
+	return calculate_transfer_moles(air1, air2, pressure_delta, sink_mod)
+
 /obj/machinery/atmospherics/binary/pump/Process()
 	last_power_draw = 0
 	last_flow_rate = 0
 
-	if((stat & (NOPOWER|BROKEN)) || !use_power)
+	if(inoperable())
 		return
 
 	var/power_draw = -1
@@ -79,7 +83,7 @@ Thus, the two variables affect pump operation are set in New():
 
 	if(pressure_delta > 0.01 && air1.temperature > 0)
 		//Figure out how much gas to transfer to meet the target pressure.
-		var/transfer_moles = calculate_transfer_moles(air1, air2, pressure_delta, (network2)? network2.volume : 0)
+		var/transfer_moles = pump_get_transfer_moles(air1, air2, pressure_delta, (network2)? network2.volume : 0)
 		power_draw = pump_gas(src, air1, air2, transfer_moles, power_rating)
 
 	if (power_draw >= 0)

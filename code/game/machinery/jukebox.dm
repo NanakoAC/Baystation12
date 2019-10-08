@@ -129,7 +129,7 @@ datum/track/proc/GetTrack()
 		else
 			StartPlaying()
 		return TOPIC_REFRESH
-	
+
 	if (href_list["volume"])
 		AdjustVolume(text2num(href_list["volume"]))
 		return TOPIC_REFRESH
@@ -157,7 +157,7 @@ datum/track/proc/GetTrack()
 	ui_interact(user)
 	return TRUE
 
-/obj/machinery/media/jukebox/proc/explode()
+/obj/machinery/media/jukebox/explode()
 	walk_to(src,0)
 	src.visible_message("<span class='danger'>\the [src] blows apart!</span>", 1)
 

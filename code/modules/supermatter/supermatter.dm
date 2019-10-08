@@ -177,7 +177,7 @@
 	return SUPERMATTER_INACTIVE
 
 
-/obj/machinery/power/supermatter/proc/explode()
+/obj/machinery/power/supermatter/explode()
 	set waitfor = 0
 
 	if(exploded)

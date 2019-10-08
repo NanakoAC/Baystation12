@@ -283,7 +283,7 @@ Class Procs:
 /obj/machinery/attack_ghost(mob/user)
 	interface_interact(user)
 
-// If you don't call parent in this proc, you must make all appropriate checks yourself. 
+// If you don't call parent in this proc, you must make all appropriate checks yourself.
 // If you do, you must respect the return value.
 /obj/machinery/attack_hand(mob/user)
 	if((. = ..())) // Buckling, climbers; unlikely to return true.
@@ -444,3 +444,11 @@ Class Procs:
 	var/obj/item/weapon/stock_parts/power/battery/battery = get_component_of_type(/obj/item/weapon/stock_parts/power/battery)
 	if(battery)
 		return battery.get_cell()
+
+//Called when a machine explodes from internally, due to its own overloading of some sort
+/obj/machinery/proc/explode()
+	explosion(get_turf(src), 1,2,3,4)
+
+	spawn(1)
+		if (!QDELETED(src))
+			dismantle()

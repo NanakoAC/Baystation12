@@ -98,7 +98,7 @@
 		spawn(duration)
 			stat &= ~EMPED
 
-/obj/machinery/power/port_gen/proc/explode()
+/obj/machinery/power/port_gen/explode()
 	explosion(src.loc, -1, 3, 5, -1)
 	qdel(src)
 
