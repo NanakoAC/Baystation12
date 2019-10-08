@@ -81,6 +81,10 @@ without generating turbine power, using the pressure regulator framework.
 
 	pipe_class = PIPE_CLASS_QUATERNARY
 
+/obj/machinery/atmospherics/binary/pump/turbo/New()
+	.=..()
+	air3.volume = 200
+	air4.volume = 800
 
 //atmos_init finds the objects (typically pipes) which connect to us, and fills the nodeX variables with them
 /obj/machinery/atmospherics/binary/pump/turbo/atmos_init()
@@ -175,6 +179,7 @@ without generating turbine power, using the pressure regulator framework.
 
 	power_rating = kinetic_energy * efficiency
 
+
 	if(kinetic_energy > max_safe_energy)
 		if(kinetic_energy > destruct_energy)
 			explode()
@@ -186,12 +191,16 @@ without generating turbine power, using the pressure regulator framework.
 			s.set_up(3, 1, src)
 			s.start()
 
+
+
 	update_icon()
 
 	if (network3)
 		network3.update = 1
 	if (network4)
 		network4.update = 1
+
+	kinetic_energy = 0
 
 
 
