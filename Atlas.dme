@@ -1372,7 +1372,6 @@
 #include "code\modules\atmospherics\components\binary_devices\passive_gate.dm"
 #include "code\modules\atmospherics\components\binary_devices\pipeturbine.dm"
 #include "code\modules\atmospherics\components\binary_devices\pump.dm"
-#include "code\modules\atmospherics\components\binary_devices\turbopump.dm"
 #include "code\modules\atmospherics\components\binary_devices\volume_pump.dm"
 #include "code\modules\atmospherics\components\omni_devices\_omni_extras.dm"
 #include "code\modules\atmospherics\components\omni_devices\filter.dm"
@@ -3176,4 +3175,5 @@
 #include "maps\~mapsystem\maps_unit_testing.dm"
 #include "maps\~unit_tests\unit_testing.dm"
 #include "~code\global_init.dm"
+#include "C:\Users\Commander\Documents\turbopump.dm"
 // END_INCLUDE
