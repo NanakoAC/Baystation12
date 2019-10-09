@@ -215,6 +215,10 @@
 	if (!gas.len || total_moles == 0)
 		return 0
 
+	//We can shortcut all this logic if we only have one gas
+	if (gas.len == 1)
+		return individual_gas_constant(gas[1])
+
 	. = 0
 	var/list/values = list()
 	var/list/weights = list()

@@ -38,6 +38,7 @@ without generating turbine power, using the pressure regulator framework.
 	density = 1
 
 	idle_power_usage = 0
+	active_power_usage = 0
 
 	initialize_directions = NORTH | SOUTH | EAST | WEST
 
@@ -92,19 +93,21 @@ without generating turbine power, using the pressure regulator framework.
 	if(node3 && node4)
 		return
 
-	var/node3_connect = turn(dir, 90)
-	var/node4_connect = turn(dir, -90)
+	var/node3_connect = turn(dir, -90)
+	var/node4_connect = turn(dir, 90)
 
 	for(var/obj/machinery/atmospherics/target in get_step(src,node3_connect))
 		if(target.initialize_directions & get_dir(target,src))
 			if (check_connect_types(target,src))
 				node3 = target
+				world << "Input found at [jumplink(node3)]"
 				break
 
 	for(var/obj/machinery/atmospherics/target in get_step(src,node4_connect))
 		if(target.initialize_directions & get_dir(target,src))
 			if (check_connect_types(target,src))
 				node4 = target
+				world << "Output found at [jumplink(node4)]"
 				break
 
 	//Node1 and node2 are already handled in the parent
@@ -163,11 +166,32 @@ without generating turbine power, using the pressure regulator framework.
 		return
 
 
+	/*
+		The formula for work done by a turbine is..
+		w = K / ((K - 1) * R * T1 * [1 - ((p2 / p1)((K-1)/K))])
+		w = work, the kinetic energy we'll generate
+		K = specific heat ratio, we will not bother calculating this and just use a generally accepted value of 1.4
+		R = Individual gas constant, we'll get this from the input gas mixture
+		T1 = Absolute temperature in kelvin, we'll just grab the temp of gas input
+		P1 = Pressure of input
+		P2 = Pressure of output
+	*/
+	var/W = 0
+	var/K = 1.4
+	var/R = air3.individual_gas_constant_average()
+	var/T1 = air3.temperature
+	var/P1 = air3.return_pressure()
+	var/P2 = air4.return_pressure()
+
 	kinetic_energy *= 1 - kin_loss
-	pressure_delta = max(air3.return_pressure() - air4.return_pressure(), 0)
+	pressure_delta = max(P1 - P2, 0)
 	if(pressure_delta > min_pressure_delta)
-		kinetic_energy += 1/ADIABATIC_EXPONENT * pressure_delta * air3.volume * (1 - volume_ratio**ADIABATIC_EXPONENT)
-		air3.temperature *= volume_ratio**ADIABATIC_EXPONENT
+
+		W = K / ((K-1) * R * T1 * (1 - ((P2 / P1)*((K-1)/K))))
+		world << "Work done: [W]"
+		kinetic_energy = W
+		//kinetic_energy += 1/ADIABATIC_EXPONENT * pressure_delta * air3.volume * (1 - volume_ratio**ADIABATIC_EXPONENT)
+		//air3.temperature *= volume_ratio**ADIABATIC_EXPONENT
 
 		var/datum/gas_mixture/air_all = new
 		air_all.volume = air3.volume + air4.volume
