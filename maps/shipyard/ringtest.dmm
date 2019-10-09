@@ -225,77 +225,74 @@
 "eq" = (/obj/effect/catwalk_plated,/obj/machinery/firealarm{dir = 4; pixel_x = 21},/turf/simulated/floor/blackgrid,/area/security/brig)
 "er" = (/obj/machinery/light/small/red{icon_state = "bulb_map"; dir = 1},/turf/simulated/floor/tiled/techfloor,/area/security/brig)
 "es" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan{icon_state = "intact"; dir = 4},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor,/area/chapel)
-"et" = (/turf/simulated/wall/r_wall,/area/security/prison)
+"et" = (/turf/simulated/wall/r_wall,/area/centcom)
 "eu" = (/obj/machinery/atmospherics/pipe/simple/visible{icon_state = "intact"; dir = 6},/turf/space,/area/space)
 "ev" = (/obj/machinery/atmospherics/pipe/manifold/visible{icon_state = "map"; dir = 1},/turf/space,/area/space)
 "ew" = (/obj/machinery/atmospherics/pipe/simple/visible{icon_state = "intact"; dir = 10},/turf/space,/area/space)
-"ex" = (/turf/simulated/wall,/area/security/prison)
-"ey" = (/obj/effect/wallframe_spawn/reinforced,/turf/simulated/floor/plating,/area/security/prison)
-"ez" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/maintenance,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/steel_ridged,/area/security/prison)
-"eA" = (/turf/simulated/floor,/area/security/prison)
+"ex" = (/turf/simulated/wall,/area/centcom)
+"ey" = (/obj/effect/wallframe_spawn/reinforced,/turf/simulated/floor/plating,/area/centcom)
+"ez" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/maintenance,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/steel_ridged,/area/centcom)
+"eA" = (/turf/simulated/floor,/area/centcom)
 "eB" = (/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction,/turf/space,/area/space)
-"eC" = (/obj/machinery/atmospherics/unary/tank/hydrogen,/obj/machinery/light{icon_state = "tube_map"; dir = 1},/turf/simulated/floor,/area/security/prison)
+"eC" = (/obj/machinery/atmospherics/unary/tank/hydrogen,/obj/machinery/light{icon_state = "tube_map"; dir = 1},/turf/simulated/floor,/area/centcom)
 "eD" = (/obj/machinery/atmospherics/pipe/simple/heat_exchanging,/turf/space,/area/space)
-"eE" = (/obj/structure/cable/orange{icon_state = "0-1"; dir = 1},/obj/machinery/power/apc/high{icon_state = "apc0"; dir = 1},/turf/simulated/floor,/area/security/prison)
-"eF" = (/obj/machinery/portable_atmospherics/canister/hydrogen,/turf/simulated/floor,/area/security/prison)
-"eG" = (/obj/machinery/light{icon_state = "tube_map"; dir = 1},/obj/machinery/portable_atmospherics/canister/hydrogen,/turf/simulated/floor,/area/security/prison)
-"eH" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor,/area/security/prison)
-"eI" = (/obj/machinery/atmospherics/portables_connector,/turf/simulated/floor,/area/security/prison)
+"eE" = (/obj/machinery/atmospherics/portables_connector,/turf/simulated/floor,/area/centcom)
+"eF" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor,/area/centcom)
+"eG" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan,/obj/machinery/meter,/turf/simulated/floor,/area/centcom)
+"eH" = (/obj/machinery/atmospherics/binary/pump/high_power/on/max_pressure,/turf/simulated/floor,/area/centcom)
+"eI" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4; frequency = 1331},/turf/simulated/floor,/area/centcom)
 "eJ" = (/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{dir = 1},/turf/space,/area/space)
 "eK" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan{icon_state = "intact"; dir = 6},/turf/space,/area/space)
-"eL" = (/obj/structure/cable/orange{icon_state = "1-2"; dir = 1},/turf/simulated/floor,/area/security/prison)
-"eM" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4; frequency = 1331},/turf/simulated/floor,/area/security/prison)
-"eN" = (/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 8},/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 4},/turf/simulated/floor,/area/security/prison)
-"eO" = (/obj/machinery/alarm{dir = 8; pixel_x = 25; pixel_y = 0},/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor,/area/security/prison)
-"eP" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan,/obj/machinery/meter,/turf/simulated/floor,/area/security/prison)
-"eQ" = (/obj/machinery/atmospherics/binary/pump/high_power/on/max_pressure,/turf/simulated/floor,/area/security/prison)
-"eR" = (/obj/machinery/light{icon_state = "tube1"; dir = 8},/obj/machinery/atmospherics/pipe/manifold/visible/cyan{icon_state = "map"; dir = 8},/turf/simulated/floor,/area/security/prison)
-"eS" = (/obj/machinery/atmospherics/pipe/manifold/visible/cyan{icon_state = "map"; dir = 4},/turf/simulated/floor,/area/security/prison)
-"eT" = (/obj/machinery/light{icon_state = "tube_map"; dir = 4},/turf/simulated/floor,/area/security/prison)
+"eL" = (/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 8},/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 4},/turf/simulated/floor,/area/centcom)
+"eM" = (/obj/machinery/alarm{dir = 8; pixel_x = 25; pixel_y = 0},/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor,/area/centcom)
+"eN" = (/obj/machinery/atmospherics/pipe/manifold/visible/cyan{icon_state = "map"; dir = 8},/turf/simulated/floor,/area/centcom)
+"eO" = (/obj/machinery/atmospherics/pipe/manifold/visible/cyan{icon_state = "map"; dir = 4},/turf/simulated/floor,/area/centcom)
+"eP" = (/obj/machinery/light{icon_state = "tube1"; dir = 8},/turf/simulated/floor,/area/centcom)
+"eQ" = (/obj/machinery/atmospherics/binary/passive_gate/on{icon_state = "map_on"; dir = 1},/turf/simulated/floor,/area/centcom)
+"eR" = (/obj/machinery/light{icon_state = "tube_map"; dir = 4},/turf/simulated/floor,/area/centcom)
+"eS" = (/obj/effect/wallframe_spawn/reinforced,/turf/simulated/floor,/area/centcom)
+"eT" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan{icon_state = "intact"; dir = 5},/turf/simulated/floor,/area/centcom)
 "eU" = (/obj/machinery/atmospherics/pipe/manifold/visible{dir = 8},/turf/space,/area/space)
 "eV" = (/obj/machinery/atmospherics/pipe/manifold4w/visible,/turf/space,/area/space)
-"eW" = (/obj/effect/wallframe_spawn/reinforced,/turf/simulated/floor,/area/security/prison)
-"eX" = (/obj/machinery/atmospherics/binary/passive_gate/on{icon_state = "map_on"; dir = 1},/turf/simulated/floor,/area/security/prison)
-"eY" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan{icon_state = "intact"; dir = 5},/turf/simulated/floor,/area/security/prison)
-"eZ" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan,/turf/simulated/floor,/area/security/prison)
-"fa" = (/obj/machinery/atmospherics/valve{icon_state = "map_valve0"; dir = 8},/turf/simulated/floor,/area/security/prison)
-"fb" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan{icon_state = "intact"; dir = 4},/obj/structure/cable/orange{icon_state = "1-2"; dir = 1},/obj/machinery/meter,/turf/simulated/floor,/area/security/prison)
+"eW" = (/obj/machinery/atmospherics/valve,/turf/simulated/floor,/area/centcom)
+"eX" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9; pixel_y = 0},/turf/simulated/floor,/area/centcom)
+"eY" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor,/area/centcom)
+"eZ" = (/obj/effect/wallframe_spawn/reinforced,/obj/machinery/atmospherics/pipe/simple/visible/cyan{icon_state = "intact"; dir = 4},/turf/simulated/floor,/area/centcom)
+"fa" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan{icon_state = "intact"; dir = 4},/turf/simulated/floor,/area/centcom)
+"fb" = (/obj/machinery/atmospherics/binary/pump/high_power/on/max_pressure{icon_state = "map_on"; dir = 8},/turf/simulated/floor,/area/centcom)
 "fc" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan{icon_state = "intact"; dir = 5},/turf/space,/area/space)
-"fd" = (/obj/machinery/atmospherics/binary/circulator{anchored = 1; dir = 4; icon_state = "circ-unassembled"},/turf/simulated/floor,/area/security/prison)
-"fe" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan{icon_state = "intact"; dir = 9},/obj/machinery/meter,/turf/simulated/floor,/area/security/prison)
-"ff" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9; pixel_y = 0},/turf/simulated/floor,/area/security/prison)
-"fg" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor,/area/security/prison)
-"fh" = (/obj/effect/wallframe_spawn/reinforced,/obj/machinery/atmospherics/pipe/simple/visible/cyan{icon_state = "intact"; dir = 4},/turf/simulated/floor,/area/security/prison)
-"fi" = (/obj/machinery/pipedispenser,/turf/simulated/floor,/area/security/prison)
+"fd" = (/obj/machinery/pipedispenser,/turf/simulated/floor,/area/centcom)
+"fe" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan,/turf/simulated/floor,/area/centcom)
+"ff" = (/obj/machinery/atmospherics/valve{icon_state = "map_valve0"; dir = 8},/turf/simulated/floor,/area/centcom)
+"fg" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan{icon_state = "intact"; dir = 4},/obj/machinery/meter,/turf/simulated/floor,/area/centcom)
+"fh" = (/obj/machinery/atmospherics/binary/circulator{anchored = 1; dir = 4; icon_state = "circ-unassembled"},/turf/simulated/floor,/area/centcom)
+"fi" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan{icon_state = "intact"; dir = 9},/obj/machinery/meter,/turf/simulated/floor,/area/centcom)
 "fj" = (/obj/machinery/atmospherics/pipe/simple/visible{icon_state = "intact"; dir = 5},/turf/space,/area/space)
 "fk" = (/obj/machinery/atmospherics/pipe/manifold/visible,/turf/space,/area/space)
 "fl" = (/obj/machinery/atmospherics/pipe/simple/visible{icon_state = "intact"; dir = 9},/turf/space,/area/space)
-"fm" = (/obj/machinery/power/generator{anchored = 1},/obj/structure/cable/orange{icon_state = "0-1"; dir = 4},/turf/simulated/floor,/area/security/prison)
-"fn" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan{icon_state = "intact"; dir = 4},/obj/structure/cable/orange{icon_state = "1-2"; dir = 1},/turf/simulated/floor,/area/security/prison)
-"fo" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan{icon_state = "intact"; dir = 4},/turf/simulated/floor,/area/security/prison)
-"fp" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{dir = 10},/turf/simulated/floor,/area/security/prison)
-"fq" = (/obj/machinery/light{icon_state = "tube1"; dir = 8},/turf/simulated/floor,/area/security/prison)
-"fr" = (/obj/machinery/atmospherics/valve,/turf/simulated/floor,/area/security/prison)
-"fs" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow,/turf/simulated/floor,/area/security/prison)
+"fm" = (/obj/machinery/light{icon_state = "tube_map"; dir = 1},/obj/machinery/portable_atmospherics/canister/hydrogen,/turf/simulated/floor,/area/centcom)
+"fn" = (/obj/machinery/power/generator{anchored = 1},/turf/simulated/floor,/area/centcom)
+"fo" = (/obj/machinery/portable_atmospherics/canister/hydrogen,/turf/simulated/floor,/area/centcom)
+"fp" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{dir = 6},/turf/simulated/floor,/area/centcom)
+"fq" = (/obj/machinery/atmospherics/binary/circulator{anchored = 1; dir = 8; icon_state = "circ-unassembled"},/turf/simulated/floor,/area/centcom)
+"fr" = (/obj/machinery/atmospherics/unary/tank/hydrogen,/turf/simulated/floor,/area/centcom)
+"fs" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow,/obj/machinery/meter,/turf/simulated/floor,/area/centcom)
 "ft" = (/obj/machinery/power/apc/super/critical{icon_state = "apc0"; dir = 4},/turf/simulated/floor,/area/centcom)
 "fu" = (/obj/machinery/atmospherics/pipe/manifold/visible/cyan{icon_state = "map"; dir = 4},/turf/space,/area/space)
-"fv" = (/obj/machinery/atmospherics/pipe/manifold/visible/yellow{icon_state = "map"; dir = 4},/turf/simulated/floor,/area/security/prison)
-"fw" = (/obj/machinery/atmospherics/pipe/manifold/visible/yellow{dir = 8},/obj/machinery/meter,/turf/simulated/floor,/area/security/prison)
-"fx" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{icon_state = "intact"; dir = 8},/obj/machinery/meter,/turf/simulated/floor,/area/security/prison)
-"fy" = (/obj/structure/cable/orange{icon_state = "2-4"; dir = 4},/turf/simulated/floor,/area/security/prison)
-"fz" = (/obj/machinery/atmospherics/binary/circulator{anchored = 1; dir = 8; icon_state = "circ-unassembled"},/turf/simulated/floor,/area/security/prison)
-"fA" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{icon_state = "intact"; dir = 5},/turf/simulated/floor,/area/security/prison)
-"fB" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{dir = 6},/turf/simulated/floor,/area/security/prison)
-"fC" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{icon_state = "intact"; dir = 4},/obj/machinery/meter,/turf/simulated/floor,/area/security/prison)
-"fD" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{icon_state = "intact"; dir = 1},/obj/machinery/meter,/turf/simulated/floor,/area/security/prison)
-"fE" = (/obj/machinery/atmospherics/binary/pump/high_power/on/max_pressure{icon_state = "map_on"; dir = 8},/turf/simulated/floor,/area/security/prison)
-"fF" = (/obj/machinery/atmospherics/pipe/manifold/visible/yellow,/turf/simulated/floor,/area/security/prison)
-"fG" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{icon_state = "intact"; dir = 4},/turf/simulated/floor,/area/security/prison)
-"fH" = (/obj/machinery/atmospherics/unary/heater{internal_volume = 5000; max_power_rating = 2e+008; max_temperature = 6000; name = "Faux Nuclear Reactor"; set_temperature = 5000},/turf/simulated/floor,/area/centcom)
-"fI" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{dir = 9},/turf/simulated/floor,/area/security/prison)
-"fJ" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow,/obj/machinery/meter,/turf/simulated/floor,/area/security/prison)
-"fK" = (/obj/machinery/light,/obj/machinery/atmospherics/pipe/simple/visible/yellow{dir = 9},/turf/simulated/floor,/area/security/prison)
-"fL" = (/obj/machinery/atmospherics/binary/pump/turbo,/turf/simulated/floor,/area/security/prison)
+"fv" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow,/turf/simulated/floor,/area/centcom)
+"fw" = (/obj/machinery/atmospherics/pipe/manifold/visible/yellow,/turf/simulated/floor,/area/centcom)
+"fx" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{icon_state = "intact"; dir = 8},/obj/machinery/meter,/turf/simulated/floor,/area/centcom)
+"fy" = (/obj/machinery/atmospherics/binary/pump/turbo,/turf/simulated/floor,/area/centcom)
+"fz" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{icon_state = "intact"; dir = 4},/obj/machinery/meter,/turf/simulated/floor,/area/centcom)
+"fA" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{dir = 9},/turf/simulated/floor,/area/centcom)
+"fB" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{icon_state = "intact"; dir = 1},/obj/machinery/meter,/turf/simulated/floor,/area/centcom)
+"fC" = (/obj/machinery/atmospherics/pipe/manifold/visible/yellow{dir = 8},/obj/machinery/meter,/turf/simulated/floor,/area/centcom)
+"fD" = (/obj/machinery/atmospherics/pipe/manifold/visible/yellow{icon_state = "map"; dir = 4},/turf/simulated/floor,/area/centcom)
+"fE" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{icon_state = "intact"; dir = 5},/turf/simulated/floor,/area/centcom)
+"fF" = (/obj/machinery/atmospherics/binary/passive_gate/on{icon_state = "map_on"; dir = 8},/turf/simulated/floor,/area/centcom)
+"fG" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{icon_state = "intact"; dir = 4},/turf/simulated/floor,/area/centcom)
+"fH" = (/obj/machinery/atmospherics/unary/heater{internal_volume = 5000; max_power_rating = 2e+010; max_temperature = 6000; name = "Faux Nuclear Reactor"; set_temperature = 5000},/turf/simulated/floor,/area/centcom)
+"fI" = (/obj/machinery/light,/obj/machinery/atmospherics/pipe/simple/visible/yellow{dir = 9},/turf/simulated/floor,/area/centcom)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -362,26 +359,26 @@ aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaeacamcsamambnbnbnbnbmbnbnbnbnamamboambpambqambram
 aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaXbWbWcobWctbtbabebtbmbtbebfbtbwbxambyambzambAambBamamamacayaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
 aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaebWcucvcwctbtbgbhbEbFbEbibjbtbwambIambJambKambLamamamamacayaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
 aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaebWcxcycxctbtbkbubOesbObvbCbtbwamambRamamambRamamamamamacayaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCacetexexexexexexexeyezeyczcAcAczcBcCczcDcDcDczcEcFczcAcAczacaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeuevevevevevevewabexeAeAeEeCeIeFeGeAeHeAcAcGcHcHcHcIcJcDcKcDcBcLcHcHcHcGcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeBeBeBeBeBeBeBeBabexeAeAeLePeQeAeAeMeNeOcAcMcNcOcPcQczcRcScRczcQcPcTcUcVcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabexeAeAeLeReSeAeAeAeHeAcAcMcWcGcGcXcYcZdacZdbdcdddddecVcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabetfqeAeLeXeQeAeAeAeHeTczdfdgdfdhdidididhdidididhdfdjdfczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeWeAeAeLeYeSeAeAeAeHeAcAcHdkcGdididhdidididhdidicGdlcHcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeWeAeAeLeAfreAeAeMfffgcAdmdndodidhdidhdidhdidhdidpdqdrcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeJeJeJeJeJeJeJeJeKfhfofEfnfoeSeAeAeAeAeAcAdsdtdxdididhdidididhdididxducGcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeUeVeVeVeVeVeVeVfuetfqeAeLfieZeAeAeAeAeTczdvdwczdydididididididieqczdzdvczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeBeBeBeBeBeBeBeBfcfhfofafbfdfeeAeAeAeAeAcAcHdAerdididBdBdBdBdBdidierdCcHcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeWeAeAfyfmeAeCeIeAeAeAcAdmdDdEdidFdGdGdGdGdGdHdidIdJdrcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeWeAeAfBfzfpfseQeAeAftcAdsdtcGejdFdGdKdKdKdGdHejcGdudscAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeteAeAfJeAfsfwfveAeAeTczcAdLcRczdMdGdKdKdKdGdGczcAdNcAczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabexfBfxfLfCfIeXeQeAeAeAcAdidOdPcAdQdRdKdSdKdTdUcAdVdWdXcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeJeJeJeJeJeJeJeJabexfsfHfDfBfafFfveAeFeAcAdYdZeaebecedecececeeecebefegehcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCfjfkfkfkfkfkfkflabexfAfFfFfFfEfGfKeAeFeFcAeiejekcAelememememememcAeneoepcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCabetexexexetexexetexexexczcAcAcAczcAcAcAczcAcAcAczcAcAcAczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCababababababababababababababababababababababababababababababaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCababababababababababababababababababababababababababababababaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCababababababababababababababababababababababababababababababaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCacetexexexexexexexeyezeyetcAcAczcBcCczcDcDcDczcEcFczcAcAczacaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeuevevevevevevewabexeAeAeAeAeAeCeEeAeFeAexcGcHcHcHcIcJcDcKcDcBcLcHcHcHcGcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeBeBeBeBeBeBeBeBabexeAeAeAeAeAeGeHeIeLeMexcMcNcOcPcQczcRcScRczcQcPcTcUcVcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabexeAeAeAeAeAeNeOeAeFeAexcMcWcGcGcXcYcZdacZdbdcdddddecVcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabetePeAeAeAeAeQeHeAeFeRetdfdgdfdhdidididhdidididhdfdjdfczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeSeAeAeAeAeAeTeOeAeFeAexcHdkcGdididhdidididhdidicGdlcHcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeSeAeAeAeAeAeAeWeIeXeYexdmdndodidhdidhdidhdidhdidpdqdrcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeJeJeJeJeJeJeJeJeKeZfafafafbfafaeOeAeAeAexdsdtdxdididhdidididhdididxducGcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeUeVeVeVeVeVeVeVfuetePeAeAeAeAfdfeeAeAeRetdvdwczdydididididididieqczdzdvczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeBeBeBeBeBeBeBeBfceZfafafafffgfhfieAeAfmexcHdAerdididBdBdBdBdBdidierdCcHcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeSeAeAeAeAeAfnfreAeAfoexdmdDdEdidFdGdGdGdGdGdHdidIdJdrcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeSeAeAeAeAfpfqfDeAeAftexdsdtcGejdFdGdKdKdKdGdHejcGdudscAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabetePfHfHeAfseAfveCeEeRetcAdLcRczdMdGdKdKdKdGdGczcAdNcAczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabexfpfwfwfxfyfzfAfveHfoexdidOdPcAdQdRdKdSdKdTdUcAdVdWdXcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeJeJeJeJeJeJeJeJabexfvfHfHeAfBeAeAfCfDfoexdYdZeaebecedecececeeecebefegehcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCfjfkfkfkfkfkfkflabexfEfwfwfFfDeAeAeQeHfoexeiejekcAelememememememcAeneoepcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCabexeAeAeAeAeWfpfffwfDeAetcAcAcAczcAcAcAczcAcAcAczcAcAcAczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCabexeAeAeAeAfEfwfbfGfIeAexabababababababababababababababababaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCabexeAeAeAeAeAeAeAeAeAeAexabababababababababababababababababaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCabetexexexetexexetexexexexabababababababababababababababababaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
 aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCababababababababababababababababababababababababababababababaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
 aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCababababababababababababababababababababababababababababababaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
 aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCababababababababababababababababababababababababababababababaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV

@@ -52,12 +52,15 @@ without generating turbine power, using the pressure regulator framework.
 
 	//Stored energy from turbine rotation
 	var/kinetic_energy = 0
+	var/shaft_energy = 0
 
 	//Percentage of kinetic energy lost each tick
 	var/kin_loss = 0.05
 
 	//Last recorded pressure delta
 	var/pressure_delta = 0
+	var/turbine_pressure_delta = 0
+	var/compressor_pressure_delta = 0
 
 	//Minimum delta to do any work
 	var/min_pressure_delta = 10
@@ -84,6 +87,9 @@ without generating turbine power, using the pressure regulator framework.
 
 /obj/machinery/atmospherics/binary/pump/turbo/New()
 	.=..()
+	//We must define this for all four nodes.
+	air1.volume = 800
+	air2.volume = 200
 	air3.volume = 200
 	air4.volume = 800
 
@@ -141,7 +147,8 @@ without generating turbine power, using the pressure regulator framework.
 	.=..(reference)
 
 
-
+/*
+Commenting out the conventional pump for a compressor.
 //The turbopump will always pump as much as it can
 /obj/machinery/atmospherics/binary/pump/turbo/pump_get_transfer_moles(air1, air2, pressure_delta, sink_mod)
 	return INFINITY
@@ -157,6 +164,7 @@ without generating turbine power, using the pressure regulator framework.
 /obj/machinery/atmospherics/binary/pump/turbo/inoperable(var/additional_flags = 0)
 	return (stat & (BROKEN|additional_flags))
 
+*/
 
 //We process after the parent, and generate power for the next tick
 /obj/machinery/atmospherics/binary/pump/turbo/Process()
@@ -168,28 +176,35 @@ without generating turbine power, using the pressure regulator framework.
 
 	/*
 		The formula for work done by a turbine is..
-		w = K / ((K - 1) * R * T1 * [1 - ((p2 / p1)((K-1)/K))])
-		w = work, the kinetic energy we'll generate
+		tw = K / ((K - 1) * R3 * T3 * [1 - ((p4 / p3)((K-1)/K))])
+		tw = turbine work, the kinetic energy we'll generate
 		K = specific heat ratio, we will not bother calculating this and just use a generally accepted value of 1.4
 		R = Individual gas constant, we'll get this from the input gas mixture
 		T1 = Absolute temperature in kelvin, we'll just grab the temp of gas input
-		P1 = Pressure of input
-		P2 = Pressure of output
+		P3 = Pressure of input
+		P4 = Pressure of output
+
+		We are solving for W.
 	*/
-	var/W = 0
+	var/TW = 0
 	var/K = 1.4
-	var/R = air3.individual_gas_constant_average()
-	var/T1 = air3.temperature
-	var/P1 = air3.return_pressure()
-	var/P2 = air4.return_pressure()
+	var/R3 = air3.individual_gas_constant_average()
+	var/T3 = air3.temperature
+	var/P3 = air3.return_pressure()
+	var/P4 = air4.return_pressure()
 
-	kinetic_energy *= 1 - kin_loss
-	pressure_delta = max(P1 - P2, 0)
-	if(pressure_delta > min_pressure_delta)
+	//kinetic_energy *= 1 - kin_loss
 
-		W = K / ((K-1) * R * T1 * (1 - ((P2 / P1)*((K-1)/K))))
-		world << "Work done: [W]"
-		kinetic_energy = W
+	turbine_pressure_delta = max(P3 - P4, 0)
+	if(turbine_pressure_delta > min_pressure_delta)
+
+		TW = K / ((K-1) * R3 * T3 * (1 - ((P4 / P3)*((K-1)/K))))
+		world << "Turbine work produced: [TW]"
+
+		//changed kinetic_energy to shaft_energy
+
+		shaft_energy = TW
+
 		//kinetic_energy += 1/ADIABATIC_EXPONENT * pressure_delta * air3.volume * (1 - volume_ratio**ADIABATIC_EXPONENT)
 		//air3.temperature *= volume_ratio**ADIABATIC_EXPONENT
 
@@ -201,11 +216,11 @@ without generating turbine power, using the pressure regulator framework.
 		air3.merge(air_all.remove(volume_ratio))
 		air4.merge(air_all)
 
-	power_rating = kinetic_energy * efficiency
+		power_rating = shaft_energy * efficiency
 
 
-	if(kinetic_energy > max_safe_energy)
-		if(kinetic_energy > destruct_energy)
+	if(shaft_energy > max_safe_energy)
+		if(shaft_energy > destruct_energy)
 			explode()
 			return
 
@@ -232,12 +247,54 @@ without generating turbine power, using the pressure regulator framework.
 	overlays.Cut()
 	if(pressure_delta > min_pressure_delta)
 		overlays += image('icons/obj/pipeturbine.dmi', "moto-turb")
-	if(kinetic_energy > max_safe_energy * 0.1)
+	if(shaft_energy > max_safe_energy * 0.1)
 		overlays += image('icons/obj/pipeturbine.dmi', "low-turb")
-	if(kinetic_energy > max_safe_energy * 0.5)
+	if(shaft_energy > max_safe_energy * 0.5)
 		overlays += image('icons/obj/pipeturbine.dmi', "med-turb")
-	if(kinetic_energy > max_safe_energy * 0.8)
+	if(shaft_energy > max_safe_energy * 0.8)
 		overlays += image('icons/obj/pipeturbine.dmi', "hi-turb")
+
+
+	/*
+		The formula for work done by a compressor is..
+		cw = K / ((K - 1) * R1 * T1 * [((p2 / p1)((K-1)/K) - 1)])
+		cw = compressor work, the power rating of the turbine goes in here to drive the compressor
+		K = specific heat ratio, we will not bother calculating this and just use a generally accepted value of 1.4
+		R1 = Individual gas constant, we'll get this from the input gas mixture
+		T1 = Absolute temperature in kelvin, we'll just grab the temp of gas input
+		P1 = Pressure of input
+		P2 = Pressure of output
+
+		Rather than solving for w, we are solving for P2.
+	*/
+
+	var/CW = shaft_energy()
+	var/K = 1.4
+	var/R1 = air1.individual_gas_constant_average()
+	var/T1 = air1.temperature
+	var/P1 = air1.return_pressure()
+	var/P2 = air2.return_pressure()
+
+	//Compressor formula.
+
+	compressor_pressure_delta = max(P1 - P2, 0)
+	if(compressor_pressure_delta > min_pressure_delta)
+
+		CW = K / ((K-1) * R1 * T1 * (((P2 / P1)*((K-1)/K) - 1)))
+		world << "Compressor work done: [CW]"
+
+		//kinetic_energy += 1/ADIABATIC_EXPONENT * pressure_delta * air1.volume * (1 - volume_ratio**ADIABATIC_EXPONENT)
+		//air1.temperature *= volume_ratio**ADIABATIC_EXPONENT
+
+		var/datum/gas_mixture/air_all = new
+		air_all.volume = air1.volume + air2.volume
+		air_all.merge(air1.remove_ratio(1))
+		air_all.merge(air2.remove_ratio(1))
+
+		air1.merge(air_all.remove(volume_ratio))
+		air2.merge(air_all)
+
+
 
 
 
