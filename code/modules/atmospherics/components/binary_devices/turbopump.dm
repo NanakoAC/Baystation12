@@ -47,6 +47,12 @@ without generating turbine power, using the pressure regulator framework.
 	//How effectively kinetic energy converts into pumping power
 	var/efficiency = 0.4
 
+	//How efficient the turbine is at harvesting work.
+	var/turbine_efficiency = 0.9
+
+	//How efficient the compressor is at performing work.
+	var/compressor_efficiency = 0.9
+
 	//When above max safe energy, this additional multiplier is factored onto efficiency
 	var/overload_efficiency = 0.75
 
@@ -199,11 +205,11 @@ Commenting out the conventional pump for a compressor.
 	if(turbine_pressure_delta > min_pressure_delta)
 
 		TW = K / ((K-1) * R3 * T3 * (1 - ((P4 / P3)*((K-1)/K))))
-		world << "Turbine work produced: [TW]"
+		world << "Turbine work produced: [TW] P3: [P3] P4: [P4]"
 
 		//changed kinetic_energy to shaft_energy
 
-		shaft_energy = TW
+		shaft_energy = TW * turbine_efficiency
 
 		//kinetic_energy += 1/ADIABATIC_EXPONENT * pressure_delta * air3.volume * (1 - volume_ratio**ADIABATIC_EXPONENT)
 		//air3.temperature *= volume_ratio**ADIABATIC_EXPONENT
@@ -265,10 +271,10 @@ Commenting out the conventional pump for a compressor.
 		P1 = Pressure of input
 		P2 = Pressure of output
 
-		Rather than solving for w, we are solving for P2.
+		Rather than solving for cw, as the turbine solved for tw, we are solving for P2.
 	*/
 
-	var/CW = shaft_energy()
+	var/CW = shaft_energy
 	var/K = 1.4
 	var/R1 = air1.individual_gas_constant_average()
 	var/T1 = air1.temperature
@@ -277,11 +283,10 @@ Commenting out the conventional pump for a compressor.
 
 	//Compressor formula.
 
-	compressor_pressure_delta = max(P1 - P2, 0)
-	if(compressor_pressure_delta > min_pressure_delta)
+	if(shaft_energy > 0)
 
-		CW = K / ((K-1) * R1 * T1 * (((P2 / P1)*((K-1)/K) - 1)))
-		world << "Compressor work done: [CW]"
+		P2 = (K * P1 * (K * R1 * T1 * CW + K - R1 * T1 * CW)) / ((K - 1) * (K - 1)) * R1 * T1 * CW
+		world << "Compressor work done: [CW] P1: [P1] P2: [P2]"
 
 		//kinetic_energy += 1/ADIABATIC_EXPONENT * pressure_delta * air1.volume * (1 - volume_ratio**ADIABATIC_EXPONENT)
 		//air1.temperature *= volume_ratio**ADIABATIC_EXPONENT
@@ -296,16 +301,11 @@ Commenting out the conventional pump for a compressor.
 
 
 
-
-
 /obj/machinery/atmospherics/binary/pump/turbo/get_initialize_directions()
 	return initial(initialize_directions)
 
 /*
 /obj/machinery/atmospherics/components/turbopump
-
-
-
 
 
 	var/efficiency = 0.9
