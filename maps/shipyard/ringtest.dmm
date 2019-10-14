@@ -273,9 +273,9 @@
 "fm" = (/obj/machinery/light{icon_state = "tube_map"; dir = 1},/obj/machinery/portable_atmospherics/canister/hydrogen,/turf/simulated/floor,/area/centcom)
 "fn" = (/obj/machinery/power/generator{anchored = 1},/turf/simulated/floor,/area/centcom)
 "fo" = (/obj/machinery/portable_atmospherics/canister/hydrogen,/turf/simulated/floor,/area/centcom)
-"fp" = (/obj/machinery/atmospherics/pipe/manifold/visible/fuel{icon_state = "map"; dir = 4},/turf/simulated/floor,/area/centcom)
+"fp" = (/obj/machinery/atmospherics/pipe/manifold/visible/fuel,/turf/simulated/floor,/area/centcom)
 "fq" = (/obj/machinery/atmospherics/binary/circulator{anchored = 1; dir = 8; icon_state = "circ-unassembled"},/turf/simulated/floor,/area/centcom)
-"fr" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan{icon_state = "intact"; dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/fuel,/turf/simulated/floor,/area/centcom)
+"fr" = (/obj/machinery/atmospherics/pipe/manifold4w/visible/fuel,/turf/simulated/floor,/area/centcom)
 "fs" = (/obj/machinery/atmospherics/pipe/simple/visible/cyan{icon_state = "intact"; dir = 10},/turf/simulated/floor,/area/centcom)
 "ft" = (/obj/machinery/power/apc/super/critical{icon_state = "apc0"; dir = 4},/turf/simulated/floor,/area/centcom)
 "fu" = (/obj/machinery/atmospherics/pipe/manifold/visible/cyan{icon_state = "map"; dir = 4},/turf/space,/area/space)
@@ -284,12 +284,10 @@
 "fx" = (/obj/machinery/atmospherics/pipe/manifold/visible/cyan,/turf/simulated/floor,/area/centcom)
 "fy" = (/obj/machinery/atmospherics/binary/pump/turbo,/turf/simulated/floor,/area/centcom)
 "fz" = (/obj/machinery/atmospherics/binary/pump/high_power/on/max_pressure{icon_state = "map_on"; dir = 4},/turf/simulated/floor,/area/centcom)
-"fA" = (/obj/machinery/atmospherics/pipe/manifold/visible/fuel{icon_state = "map"; dir = 8},/turf/simulated/floor,/area/centcom)
 "fB" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{icon_state = "intact"; dir = 4},/turf/simulated/floor,/area/centcom)
 "fC" = (/obj/machinery/atmospherics/pipe/manifold/visible/yellow{dir = 8},/obj/machinery/meter,/turf/simulated/floor,/area/centcom)
 "fD" = (/obj/machinery/atmospherics/pipe/manifold/visible/yellow{icon_state = "map"; dir = 4},/turf/simulated/floor,/area/centcom)
 "fE" = (/obj/machinery/meter,/obj/machinery/atmospherics/pipe/simple/visible/fuel{icon_state = "intact"; dir = 10},/turf/simulated/floor,/area/centcom)
-"fF" = (/obj/machinery/meter,/obj/machinery/atmospherics/pipe/simple/visible/fuel{icon_state = "intact"; dir = 5},/turf/simulated/floor,/area/centcom)
 "fG" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{icon_state = "intact"; dir = 6},/turf/simulated/floor,/area/centcom)
 "fH" = (/obj/machinery/atmospherics/unary/heater{internal_volume = 5000; max_power_rating = 2e+010; max_temperature = 6000; name = "Faux Nuclear Reactor"; set_temperature = 5000},/turf/simulated/floor,/area/centcom)
 "fI" = (/obj/machinery/meter,/obj/machinery/atmospherics/pipe/simple/visible/fuel{icon_state = "intact"; dir = 4},/turf/simulated/floor,/area/centcom)
@@ -368,19 +366,19 @@ aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaebWcucvcwctbtbgbhbEbFbEbibjbtbwambIambJambKambLam
 aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCaebWcxcycxctbtbkbubOesbObvbCbtbwamambRamamambRamamamamamacayaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
 aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCacetexexexexexexexeyezeyetcAcAczcBcCczcDcDcDczcEcFczcAcAczacaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
 aCaCaCaCaCaCaCeuevevevevevevewabexeAeAeAeAfofmeAeAeFeAexcGcHcHcHcIcJcDcKcDcBcLcHcHcHcGcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeBeBeBeBeBeBeBeBabexeCeEeCeEfofoeAeIeLeMexcMcNcOcPcQczcRcScRczcQcPcTcUcVcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabexeGeHfveHfofoeAeAeFeAexcMcWcGcGcXcYcZdacZdbdcdddddecVcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeteNeOfCfDfofoeAeAeFeRetdfdgdfdhdidididhdidididhdfdjdfczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeSeQeHeQeHfofoeAeAeFeAexcHdkcGdididhdidididhdidicGdlcHcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeSeTeOfgfpeAeAeAeIeXeYexdmdndodidhdidhdidhdidhdidpdqdrcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeJeJeJeJeJeJeJeJeKeZfafbfffrfafafafseAeAexdsdtdxdididhdidididhdididxducGcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeUeVeVeVeVeVeVeVfuetePeWeAfwfdeAeAfeeAeRetdvdwczdydididididididieqczdzdvczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeBeBeBeBeBeBeBeBfceZfafxfzfrfOfhfOfieAeAexcHdAerdididBdBdBdBdBdidierdCcHcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeSeAeAeAeWeAfneAeAeAeAexdmdDdEdidFdGdGdGdGdGdHdidIdJdrcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeSeAeAeAfAfOfqfOfEeAftexdsdtcGejdFdGdKdKdKdGdHejcGdudscAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeteAeAeAfFfffEeAeWeAeRetcAdLcRczdMdGdKdKdKdGdGczcAdNcAczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabexeAeAeAfGfIfyfBfJeAeAexdidOdPcAdQdRdKdSdKdTdUcAdVdWdXcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
-aCaCaCaCaCaCaCeJeJeJeJeJeJeJeJabexeAeAeAfAfKfLfBfMeAeAexdYdZeaebecedecececeeecebefegehcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeBeBeBeBeBeBeBeBabexeCeEeAeAfofoeAeIeLeMexcMcNcOcPcQczcRcScRczcQcPcTcUcVcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabexeGeHeAeAfofoeAeAeFeAexcMcWcGcGcXcYcZdacZdbdcdddddecVcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeteNeOeAeAfofoeAeAeFeRetdfdgdfdhdidididhdidididhdfdjdfczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeSeQeHeAeAfofoeAeAeFeAexcHdkcGdididhdidididhdidicGdlcHcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeSeTeOeAeAeAeAeAeIeXeYexdmdndodidhdidhdidhdidhdidpdqdrcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeJeJeJeJeJeJeJeJeKeZfafbfffafafafafseAeAexdsdtdxdididhdidididhdididxducGcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeUeVeVeVeVeVeVeVfuetePeWeAeAfdeAeAfeeAeRetdvdwczdydididididididieqczdzdvczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeBeBeBeBeBeBeBeBfceZfafxfzfafOfhfOfieAeAexcHdAerdididBdBdBdBdBdidierdCcHcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeSeCeEeAeAeAfneAeAeAeAexdmdDdEdidFdGdGdGdGdGdHdidIdJdrcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabeSfveHeAfGfOfqfOfEeAftexdsdtcGejdFdGdKdKdKdGdHejcGdudscAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabetfCfDeAfgfffEeAeWeAeRetcAdLcRczdMdGdKdKdKdGdGczcAdNcAczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeDeDeDeDeDeDeDeDabexeQeHeAfGfIfyfBfJeAeAexdidOdPcAdQdRdKdSdKdTdUcAdVdWdXcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
+aCaCaCaCaCaCaCeJeJeJeJeJeJeJeJabexfgfpfffrfKfLfBfMeAeAexdYdZeaebecedecececeeecebefegehcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
 aCaCaCaCaCaCaCfjfkfkfkfkfkfkflabexeAeAeAeWfHeWeAeAeAeAexeiejekcAelememememememcAeneoepcAabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
 aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCabexeAeAeAfwfPfweAeAeAeAetcAcAcAczcAcAcAczcAcAcAczcAcAcAczabaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
 aCaCaCaCaCaCaCaCaCaCaCaCaCaCaCabexeAeAeAfgfNfMeAeAeAeAexabababababababababababababababababaVaVaVaVaVaVaVaVaVaVaVaVaVaVaV
