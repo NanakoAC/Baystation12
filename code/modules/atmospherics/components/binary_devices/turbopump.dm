@@ -82,6 +82,8 @@ without generating turbine power, using the pressure regulator framework.
 
 	pipe_class = PIPE_CLASS_QUATERNARY
 
+	open_valve = TRUE
+
 /obj/machinery/atmospherics/binary/pump/turbo/New()
 	.=..()
 	air3 = new
@@ -200,7 +202,7 @@ without generating turbine power, using the pressure regulator framework.
 	var/P1 = air3.return_pressure()
 	var/P2 = air4.return_pressure()
 
-	kinetic_energy *= 1 - kin_loss
+	//kinetic_energy *= 1 - kin_loss
 	pressure_delta = max(P1 - P2, 0)
 	if(pressure_delta > min_pressure_delta)
 
@@ -218,7 +220,9 @@ without generating turbine power, using the pressure regulator framework.
 		This will equalise the pressure between air3 and air4 by letting some gas through
 		In addition, it will populate our last_flow_rate var with the percentage of moles that it let through
 	*/
+	world << "Preflow pressure [P1] [P2]"
 	pump_gas_passive(src, air3, air4)
+	world << "Postflow pressure [air3.return_pressure()] [air4.return_pressure()]"
 
 	/*
 		Now how much did we actually let through?

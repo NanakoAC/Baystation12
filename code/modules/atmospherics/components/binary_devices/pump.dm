@@ -35,6 +35,7 @@ Thus, the two variables affect pump operation are set in New():
 	var/datum/radio_frequency/radio_connection
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_FUEL
 	build_icon_state = "pump"
+	var/open_valve = FALSE //If true, this pump allows gas to pass through freely
 
 /obj/machinery/atmospherics/binary/pump/Initialize()
 	. = ..()
@@ -74,6 +75,25 @@ Thus, the two variables affect pump operation are set in New():
 /obj/machinery/atmospherics/binary/pump/Process()
 	last_power_draw = 0
 	last_flow_rate = 0
+
+
+	/*
+		If open valve is true, this pump is inside an open pipe and gas can pass through freely. Even if the pump is off, broken, or depowered.
+		To reflect this, we will do a passive pump before anything else. This will equalize the pressure from input to outflow
+			This only does anything if the input pressure is higher than outflow. It still forces the flow to only go one way
+
+		Since we're doing this before the powered pumping, the actual pumping will be working on equal pressures and is therefore almost
+		guaranteed to make the output higher pressure
+
+		If open valve is false, then the pump only allows gas through when it personally forces that gas through, and is otherwise effectively a closed pipe
+	*/
+	if (open_valve)
+		pump_gas_passive(src, air1, air2)
+		if(network1)
+			network1.update = 1
+
+		if(network2)
+			network2.update = 1
 
 	if(inoperable())
 		return
