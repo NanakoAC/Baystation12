@@ -53,6 +53,8 @@ without generating turbine power, using the pressure regulator framework.
 	//Stored energy from turbine rotation
 	var/kinetic_energy = 0
 
+	target_pressure = INFINITY
+
 	//Percentage of kinetic energy lost each tick
 	var/kin_loss = 0.05
 
@@ -81,6 +83,7 @@ without generating turbine power, using the pressure regulator framework.
 	var/datum/pipe_network/network4
 
 	pipe_class = PIPE_CLASS_QUATERNARY
+	var/debug_power = 0
 
 	open_valve = TRUE
 
@@ -220,9 +223,9 @@ without generating turbine power, using the pressure regulator framework.
 		This will equalise the pressure between air3 and air4 by letting some gas through
 		In addition, it will populate our last_flow_rate var with the percentage of moles that it let through
 	*/
-	world << "Preflow pressure [P1] [P2]"
+	//world << "Preflow pressure [P1] [P2]"
 	pump_gas_passive(src, air3, air4)
-	world << "Postflow pressure [air3.return_pressure()] [air4.return_pressure()]"
+	//world << "Postflow pressure [air3.return_pressure()] [air4.return_pressure()]"
 
 	/*
 		Now how much did we actually let through?
@@ -232,6 +235,7 @@ without generating turbine power, using the pressure regulator framework.
 
 	kinetic_energy *= flow_mass //So we multiply it by the mass of the gas to get a result
 
+	kinetic_energy += debug_power
 	power_rating = kinetic_energy * efficiency //power_rating is used for pumping
 
 	world << "Work done: [kinetic_energy] Power: [power_rating]"

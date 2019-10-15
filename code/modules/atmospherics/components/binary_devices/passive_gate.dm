@@ -15,7 +15,7 @@
 	interact_offline = 1
 	var/unlocked = 0	//If 0, then the valve is locked closed, otherwise it is open(-able, it's a one-way valve so it closes if gas would flow backwards).
 	var/target_pressure = ONE_ATMOSPHERE
-	var/max_pressure_setting = MAX_PUMP_PRESSURE
+	//var/max_pressure_setting = MAX_PUMP_PRESSURE
 	var/set_flow_rate = ATMOS_DEFAULT_VOLUME_PUMP * 2.5
 	var/regulate_mode = REGULATE_OUTPUT
 
@@ -154,7 +154,7 @@
 		target_pressure = between(
 			0,
 			text2num(signal.data["set_target_pressure"]),
-			max_pressure_setting
+			INFINITY
 		)
 
 	if("set_regulate_mode" in signal.data)
@@ -184,7 +184,7 @@
 	data = list(
 		"on" = unlocked,
 		"pressure_set" = round(target_pressure*100),	//Nano UI can't handle rounded non-integers, apparently.
-		"max_pressure" = max_pressure_setting,
+		//"max_pressure" = max_pressure_setting,
 		"input_pressure" = round(air1.return_pressure()*100),
 		"output_pressure" = round(air2.return_pressure()*100),
 		"regulate_mode" = regulate_mode,
@@ -218,11 +218,9 @@
 	switch(href_list["set_press"])
 		if ("min")
 			target_pressure = 0
-		if ("max")
-			target_pressure = max_pressure_setting
 		if ("set")
-			var/new_pressure = input(usr,"Enter new output pressure (0-[max_pressure_setting]kPa)","Pressure Control",src.target_pressure) as num
-			src.target_pressure = between(0, new_pressure, max_pressure_setting)
+			var/new_pressure = input(usr,"Enter new output pressure (kPa)","Pressure Control",src.target_pressure) as num
+			src.target_pressure = between(0, new_pressure, INFINITY)
 
 	switch(href_list["set_flow_rate"])
 		if ("min")

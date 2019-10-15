@@ -21,8 +21,9 @@
 		icon_state = "[use_power ? "on" : "off"]"
 
 // For mapping purposes
-/obj/machinery/atmospherics/binary/pump/high_power/on/max_pressure/
-	target_pressure = MAX_PUMP_PRESSURE
+/obj/machinery/atmospherics/binary/pump/high_power/on/max_pressure/Initialize()
+	.=..()
+	target_pressure = max_pressure_setting
 
 // A possible variant for Atmospherics distribution feed.
 /obj/machinery/atmospherics/binary/pump/high_power/on/distribution/Initialize()
