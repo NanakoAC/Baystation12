@@ -33,7 +33,7 @@ without generating turbine power, using the pressure regulator framework.
 	name = "turbopump"
 	desc = "A powerful turbopump. The other bits of a rocket are probably around here somewhere."
 	icon = 'icons/obj/pipeturbine.dmi'
-	icon_state = "turbine"
+	icon_state = "turbopump"
 	anchored = 1
 	density = 1
 
@@ -293,13 +293,13 @@ without generating turbine power, using the pressure regulator framework.
 /obj/machinery/atmospherics/binary/pump/turbo/update_icon()
 	overlays.Cut()
 	if(pressure_delta > min_pressure_delta)
-		overlays += image('icons/obj/pipeturbine.dmi', "moto-turb")
+		overlays += image('icons/obj/pipeturbine.dmi', "moto-turbopump")
 	if(kinetic_energy > max_safe_energy * 0.1)
-		overlays += image('icons/obj/pipeturbine.dmi', "low-turb")
+		overlays += image('icons/obj/pipeturbine.dmi', "low-turbopump")
 	if(kinetic_energy > max_safe_energy * 0.5)
-		overlays += image('icons/obj/pipeturbine.dmi', "med-turb")
+		overlays += image('icons/obj/pipeturbine.dmi', "med-turbopump")
 	if(kinetic_energy > max_safe_energy * 0.8)
-		overlays += image('icons/obj/pipeturbine.dmi', "hi-turb")
+		overlays += image('icons/obj/pipeturbine.dmi', "hi-turbopump")
 
 
 
