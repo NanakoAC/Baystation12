@@ -229,6 +229,7 @@ without generating turbine power, using the pressure regulator framework.
 
 		kinetic_energy = W
 
+	/*
 	world << "---------------------------------------------"
 	world << "W = [W]"
 	world << "K = [K]"
@@ -236,6 +237,7 @@ without generating turbine power, using the pressure regulator framework.
 	world << "T1 = [T1]"
 	world << "P1 = [P1]"
 	world << "P2 = [P2]"
+	*/
 
 	//STAGE 2: GAS FLOW
 
@@ -255,7 +257,6 @@ without generating turbine power, using the pressure regulator framework.
 	*/
 	last_turbine_mass = (input_moles - air3.total_moles) * input_specific_mass
 	last_turbine_flow = last_flow_rate
-	world << "Gas mass = [last_turbine_mass]"
 
 	kinetic_energy *= last_turbine_mass //So we multiply it by the mass of the gas to get a result
 
@@ -265,7 +266,6 @@ without generating turbine power, using the pressure regulator framework.
 	kinetic_energy += debug_power
 	power_rating = kinetic_energy * efficiency //power_rating is used for pumping
 
-	world << "Work done: [kinetic_energy] Power: [power_rating]"
 
 	if(kinetic_energy > max_safe_energy)
 		if(kinetic_energy > destruct_energy)
@@ -314,17 +314,18 @@ without generating turbine power, using the pressure regulator framework.
 	var/data[0]
 
 	data = list(
-		"kinetic_energy" = kinetic_energy,
+		"kinetic_energy" = round(kinetic_energy,1),
+		"power" = round(power_rating,1),
 		"safe_energy" = max_safe_energy,	//Nano UI can't handle rounded non-integers, apparently.
 		"overload_energy" = destruct_energy,
-		"last_pump_flow" = last_pump_flow,
-		"last_pump_mass" = last_pump_mass,
-		"last_turbine_flow" = last_turbine_flow,
-		"last_turbine_mass" = last_turbine_mass,
-		"pump_pressure_in" = air1.return_pressure(),
-		"pump_pressure_out" = air2.return_pressure(),
-		"turbine_pressure_in" = air3.return_pressure(),
-		"turbine_pressure_out" = air4.return_pressure()
+		"last_pump_flow" = round(last_pump_flow, 0.1),
+		"last_pump_mass" = round(last_pump_mass,0.01),
+		"last_turbine_flow" = round(last_turbine_flow,0.1),
+		"last_turbine_mass" = round(last_turbine_mass,0.01),
+		"pump_pressure_in" = round(air1.return_pressure(),1),
+		"pump_pressure_out" = round(air2.return_pressure(),1),
+		"turbine_pressure_in" = round(air3.return_pressure(),1),
+		"turbine_pressure_out" = round(air4.return_pressure(),1)
 	)
 
 	// update the ui if it exists, returns null if no ui is passed/found

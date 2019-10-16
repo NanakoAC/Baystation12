@@ -3,9 +3,12 @@
 		Pump Pressure:
 	</div>
 	<div class="itemContent">
-		<div style="clear: both; padding-top: 4px;">
-			<div style="float: left; width: 80px; text-align: center;">&nbsp;{{:(data.pump_pressure_in)}} kPa&nbsp; {{:(data.pump_pressure_out)}} kPa&nbsp;</div>
-		</div>
+		
+		<table><tr>
+			<td><div style="float: left; width: 100px; text-align: right;">&nbsp;{{:(data.pump_pressure_in)}} kPa</div></td>
+			<td><div style="float: left; width: 100px; text-align: right;">&nbsp;{{:(data.pump_pressure_out)}} kPa</div></td>
+		</tr></table>
+		
 	</div>
 </div>
 
@@ -14,9 +17,11 @@
 		Pump Flow:
 	</div>
 	<div class="itemContent">
-		<div style="clear: both; padding-top: 4px;">
-			<div style="float: left; width: 80px; text-align: center;">&nbsp;{{:(data.last_pump_flow)}} l/s&nbsp; {{:(data.last_pump_mass)}} kg/s&nbsp;</div>
-		</div>
+	
+		<table><tr>
+			<td><div style="float: left; width: 100px; text-align: right;">&nbsp;{{:((data.last_pump_flow)}} l/s</div></td>
+			<td><div style="float: left; width: 100px; text-align: right;">&nbsp;{{:data.last_pump_mass)}} kg/s</div></td>
+		</tr></table>
 	</div>
 </div>
 
@@ -28,9 +33,10 @@
 		Turbine Pressure:
 	</div>
 	<div class="itemContent">
-		<div style="clear: both; padding-top: 4px;">
-			<div style="float: left; width: 80px; text-align: center;">&nbsp;{{:(data.turbine_pressure_in)}} kPa&nbsp; {{:(data.turbine_pressure_out)}} kPa&nbsp;</div>
-		</div>
+		<table><tr>
+			<td><div style="float: left; width: 100px; text-align: right;">&nbsp;{{:(data.turbine_pressure_in)}} kPa</div></td>
+			<td><div style="float: left; width: 100px; text-align: right;">&nbsp;{{:(data.turbine_pressure_out)}} kPa</div></td>
+		</tr></table>
 	</div>
 </div>
 
@@ -40,9 +46,10 @@
 		Turbine Flow:
 	</div>
 	<div class="itemContent">
-		<div style="clear: both; padding-top: 4px;">
-			<div style="float: left; width: 80px; text-align: center;">&nbsp;{{:(data.last_turbine_flow)}} l/s&nbsp; {{:(data.last_turbine_mass)}} kg/s&nbsp;</div>
-		</div>
+		<table><tr>
+			<td><div style="float: left; width: 100px; text-align: right;">&nbsp;{{:((data.last_turbine_flow)}} l/s</div></td>
+			<td><div style="float: left; width: 100px; text-align: right;">&nbsp;{{:data.last_turbine_mass)}} kg/s</div></td>
+		</tr></table>
 	</div>
 </div>
 
@@ -54,8 +61,9 @@
 	</div>
 	<div class="itemContent">
 		{{:helper.displayBar(data.kinetic_energy, 0, data.overload_energy, (data.kinetic_energy < data.safe_energy) ? 'good' : 'average')}}
+		<br/>
 		<div class="statusValue">
-			{{:data.last_power_draw}} W
+			{{:data.power}} W
 		</div>
 	</div>
 </div>

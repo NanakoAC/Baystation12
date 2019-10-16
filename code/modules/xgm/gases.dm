@@ -107,7 +107,7 @@
 	id = GAS_HYDROGEN
 	name = "Hydrogen"
 	specific_heat = 100	// J/(mol*K)
-	molar_mass = 0.002	// kg/mol
+	molar_mass = 0.002016	// kg/mol
 	flags = XGM_GAS_FUEL|XGM_GAS_FUSION_FUEL
 	burn_product = GAS_STEAM
 	symbol_html = "H<sub>2</sub>"
