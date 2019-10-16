@@ -110,4 +110,4 @@
 
 /proc/get_individual_gas_constant(var/gas_id)
 	var/molar_mass = gas_data.molar_mass[gas_id]
-	return (molar_mass * UNIVERSAL_GAS_CONSTANT)
+	return (UNIVERSAL_GAS_CONSTANT / molar_mass)

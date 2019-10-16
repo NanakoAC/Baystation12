@@ -1,0 +1,61 @@
+<div class="item">
+	<div class="itemLabel">
+		Pump Pressure:
+	</div>
+	<div class="itemContent">
+		<div style="clear: both; padding-top: 4px;">
+			<div style="float: left; width: 80px; text-align: center;">&nbsp;{{:(data.pump_pressure_in)}} kPa&nbsp; {{:(data.pump_pressure_out)}} kPa&nbsp;</div>
+		</div>
+	</div>
+</div>
+
+<div class="item">
+	<div class="itemLabel">
+		Pump Flow:
+	</div>
+	<div class="itemContent">
+		<div style="clear: both; padding-top: 4px;">
+			<div style="float: left; width: 80px; text-align: center;">&nbsp;{{:(data.last_pump_flow)}} l/s&nbsp; {{:(data.last_pump_mass)}} kg/s&nbsp;</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="item">
+	<div class="itemLabel">
+		Turbine Pressure:
+	</div>
+	<div class="itemContent">
+		<div style="clear: both; padding-top: 4px;">
+			<div style="float: left; width: 80px; text-align: center;">&nbsp;{{:(data.turbine_pressure_in)}} kPa&nbsp; {{:(data.turbine_pressure_out)}} kPa&nbsp;</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="item">
+	<div class="itemLabel">
+		Turbine Flow:
+	</div>
+	<div class="itemContent">
+		<div style="clear: both; padding-top: 4px;">
+			<div style="float: left; width: 80px; text-align: center;">&nbsp;{{:(data.last_turbine_flow)}} l/s&nbsp; {{:(data.last_turbine_mass)}} kg/s&nbsp;</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="item">
+	<div class="itemLabel">
+		Load:
+	</div>
+	<div class="itemContent">
+		{{:helper.displayBar(data.kinetic_energy, 0, data.overload_energy, (data.kinetic_energy < data.safe_energy) ? 'good' : 'average')}}
+		<div class="statusValue">
+			{{:data.last_power_draw}} W
+		</div>
+	</div>
+</div>
