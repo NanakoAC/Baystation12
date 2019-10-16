@@ -318,14 +318,14 @@ without generating turbine power, using the pressure regulator framework.
 		"power" = round(power_rating,1),
 		"safe_energy" = max_safe_energy,	//Nano UI can't handle rounded non-integers, apparently.
 		"overload_energy" = destruct_energy,
-		"last_pump_flow" = round(last_pump_flow, 0.1),
-		"last_pump_mass" = round(last_pump_mass,0.01),
-		"last_turbine_flow" = round(last_turbine_flow,0.1),
-		"last_turbine_mass" = round(last_turbine_mass,0.01),
-		"pump_pressure_in" = round(air1.return_pressure(),1),
-		"pump_pressure_out" = round(air2.return_pressure(),1),
-		"turbine_pressure_in" = round(air3.return_pressure(),1),
-		"turbine_pressure_out" = round(air4.return_pressure(),1)
+		"last_pump_flow" = fixed_decimal(last_pump_flow, 2),
+		"last_pump_mass" = fixed_decimal(last_pump_mass,2),
+		"last_turbine_flow" = fixed_decimal(last_turbine_flow,2),
+		"last_turbine_mass" = fixed_decimal(last_turbine_mass,2),
+		"pump_pressure_in" = fixed_decimal(air1.return_pressure(),2),
+		"pump_pressure_out" = fixed_decimal(air2.return_pressure(),2),
+		"turbine_pressure_in" = fixed_decimal(air3.return_pressure(),2),
+		"turbine_pressure_out" = fixed_decimal(air4.return_pressure(),2)
 	)
 
 	// update the ui if it exists, returns null if no ui is passed/found

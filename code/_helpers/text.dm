@@ -576,3 +576,30 @@ proc/TextPreview(var/string,var/len=40)
 	var/where = "[A? A.name : "Unknown Location"] | [T.x], [T.y], [T.z]"
 	var/whereLink = "<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[T.x];Y=[T.y];Z=[T.z]'>[where]</a>"
 	return whereLink
+
+
+//Takes a number and returns a string which is that value with a fixed number of decimal places
+//It will truncate or add trailing zeroes as necessary
+/proc/fixed_decimal(var/number, var/places)
+	var/roundval = 1
+	if (places <= 0)
+		return "[round(number, roundval)]" //If no places, just return it
+
+	roundval *= 0.1**places
+	number = round(number, roundval) //Now we have a correctly rounded number
+
+	var/stringnum = "[number]"
+	var/list/listnum = splittext(stringnum, ".") //Split it into a list, first element is before the dot, second element is after
+
+	//If the number didn't have a decimal point in it, we'll only have a single entry list. Add a blank second entry
+	if (listnum.len < 2)
+		listnum.Add("")
+
+	var/zeroes_needed = places - length(listnum[2]) //Lets find out how many trailing zeroes we need to add, if any
+
+	while (zeroes_needed > 0)
+		listnum[2] = "[listnum[2]]0"
+		zeroes_needed--
+
+	//Ok we're done, rebuild and return it
+	return "[listnum[1]].[listnum[2]]"
