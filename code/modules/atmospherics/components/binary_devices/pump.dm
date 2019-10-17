@@ -35,12 +35,16 @@ Thus, the two variables affect pump operation are set in New():
 	var/datum/radio_frequency/radio_connection
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_FUEL
 	build_icon_state = "pump"
+
+	var/inputvolume = ATMOS_DEFAULT_VOLUME_PUMP
+	var/outputvolume = ATMOS_DEFAULT_VOLUME_PUMP
+
 	var/open_valve = FALSE //If true, this pump allows gas to pass through freely
 
 /obj/machinery/atmospherics/binary/pump/Initialize()
 	. = ..()
-	air1.volume = ATMOS_DEFAULT_VOLUME_PUMP
-	air2.volume = ATMOS_DEFAULT_VOLUME_PUMP
+	air1.volume = inputvolume
+	air2.volume = outputvolume
 
 /obj/machinery/atmospherics/binary/pump/AltClick()
 	Topic(src, list("power" = "1"))

@@ -72,6 +72,11 @@ without generating turbine power, using the pressure regulator framework.
 	//Above this energy value, the turbopump immediately explodes
 	var/destruct_energy = 2 MEGAWATTS
 
+	//The pump ports
+	inputvolume = 1000
+	outputvolume = 200
+
+
 	//The turbine ports
 	var/obj/machinery/atmospherics/node3
 	var/obj/machinery/atmospherics/node4
