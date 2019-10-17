@@ -64,8 +64,6 @@ without generating turbine power, using the pressure regulator framework.
 	//Minimum delta to do any work
 	var/min_pressure_delta = 0//10
 
-	var/volume_ratio = 0.2
-
 	//Above this energy value, the pump starts throwing out sparks
 	var/max_safe_energy = 1 MEGAWATTS
 
@@ -73,9 +71,8 @@ without generating turbine power, using the pressure regulator framework.
 	var/destruct_energy = 2 MEGAWATTS
 
 	//The pump ports
-	inputvolume = 1000
-	outputvolume = 200
-
+	input_volume = 1000
+	output_volume = 800
 
 	//The turbine ports
 	var/obj/machinery/atmospherics/node3
@@ -103,8 +100,8 @@ without generating turbine power, using the pressure regulator framework.
 	.=..()
 	air3 = new
 	air4 = new
-	air3.volume = 200
-	air4.volume = 800
+	air3.volume = 800
+	air4.volume = 1000
 
 //atmos_init finds the objects (typically pipes) which connect to us, and fills the nodeX variables with them
 /obj/machinery/atmospherics/binary/pump/turbo/atmos_init()
