@@ -6,22 +6,27 @@
 	w_class = ITEM_SIZE_SMALL
 
 /obj/item/weapon/folder/blue
+	name = "blue folder"
 	desc = "A blue folder."
 	icon_state = "folder_blue"
 
 /obj/item/weapon/folder/red
+	name = "red folder"
 	desc = "A red folder."
 	icon_state = "folder_red"
 
 /obj/item/weapon/folder/yellow
+	name = "yellow folder"
 	desc = "A yellow folder."
 	icon_state = "folder_yellow"
 
 /obj/item/weapon/folder/white
+	name = "white folder"
 	desc = "A white folder."
 	icon_state = "folder_white"
 
 /obj/item/weapon/folder/nt
+	name = "corporate folder"
 	desc = "A corporate folder."
 	icon_state = "folder_nt"
 
@@ -39,8 +44,8 @@
 		update_icon()
 	else if(istype(W, /obj/item/weapon/pen))
 		var/n_name = sanitizeSafe(input(usr, "What would you like to label the folder?", "Folder Labelling", null)  as text, MAX_NAME_LEN)
-		if((loc == usr && usr.stat == 0))
-			SetName("folder[(n_name ? text("- '[n_name]'") : null)]")
+		if((loc == usr && usr.stat == 0 && n_name))
+			SetName(n_name)
 	return
 
 /obj/item/weapon/folder/attack_self(mob/user as mob)
@@ -68,7 +73,7 @@
 			if(P && (P.loc == src) && istype(P))
 				usr.put_in_hands(P)
 
-		else if(href_list["read"])			
+		else if(href_list["read"])
 			var/obj/item/weapon/paper/P = locate(href_list["read"])
 			if(P && (P.loc == src) && istype(P))
 				if(!(istype(usr, /mob/living/carbon/human) || isghost(usr) || istype(usr, /mob/living/silicon)))

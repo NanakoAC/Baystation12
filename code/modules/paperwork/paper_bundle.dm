@@ -59,13 +59,19 @@
 	return
 
 /obj/item/weapon/paper_bundle/proc/insert_sheet_at(mob/user, var/index, obj/item/weapon/sheet)
-	if (!user.unEquip(sheet, src))
+	if (user && !user.unEquip(sheet, src))
 		return
+	else if (!user)
+		sheet.forceMove(src)
+
+	if (!index)
+		index = pages.len+1 //Zero or null index means just add it to the end
+
 	var/bundle_name = "paper bundle"
 	var/sheet_name = istype(sheet, /obj/item/weapon/photo) ? "photo" : "sheet of paper"
 	bundle_name = (bundle_name == name) ? "the [bundle_name]" : name
 	sheet_name = (sheet_name == sheet.name) ? "the [sheet_name]" : sheet.name
-	
+
 	to_chat(user, "<span class='notice'>You add [sheet_name] to [bundle_name].</span>")
 	pages.Insert(index, sheet)
 	if(index <= page)

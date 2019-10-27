@@ -1,15 +1,8 @@
 /datum/persistent/graffiti
 	name = "graffiti"
-	tokens_per_line = 6
-	entries_expire_at = 50
+	entries_expire_at = 5
 	has_admin_data = TRUE
 
-/datum/persistent/graffiti/LabelTokens(var/list/tokens)
-	var/list/labelled_tokens = ..()
-	var/entries = LAZYLEN(labelled_tokens)
-	labelled_tokens["author"] =  tokens[entries+1]
-	labelled_tokens["message"] = tokens[entries+2]
-	return labelled_tokens
 
 /datum/persistent/graffiti/GetValidTurf(var/turf/T, var/list/tokens)
 	var/turf/checking_turf = ..()

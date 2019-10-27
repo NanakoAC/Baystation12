@@ -11,3 +11,4 @@
 /obj/effect/decal/cleanable/filth/Initialize()
 	. = ..()
 	alpha = rand(180,220)
+	transform = turn(transform, rand(0, 360)) //Randomised rotation

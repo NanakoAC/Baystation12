@@ -9,10 +9,28 @@
 	var/list/notices
 	var/base_icon_state = "nboard0"
 	var/const/max_notices = 5
+	var/board_id = null
+	//A unique ID used to identify this noticeboard for saving and loading persistent documents pinned to it
+	//This should ideally be set via map instances or code subtypes
+
+	var/list/can_pin = list(/obj/item/weapon/photo, //Photos can be pinned, but will not be saved persistently
+	/obj/item/weapon/paper,
+	/obj/item/weapon/paper_bundle,
+	/obj/item/weapon/folder)
 
 /obj/structure/noticeboard/Initialize()
 
 	. = ..()
+
+	//Fallback behaviour.deterministically autogenerate a board ID based on coordinates.
+	//This is not ideal and will cause persistent things to break if moved elsewhere.
+	if (!board_id)
+		board_id = "x[x]y[y]z[z]"
+
+
+	//Add ourselves to the noticeboards list in the persistence subsystem. This allows documents being loaded to find this board
+	SSpersistence.noticeboards[board_id] = src
+
 
 	// Grab any mapped notices.
 	notices = list()
@@ -58,6 +76,9 @@
 	if(istype(paper))
 		LAZYDISTINCTADD(notices, paper)
 		paper.forceMove(src)
+
+		SSpersistence.track_value(paper, /datum/persistent/paper/noticeboard)
+
 		if(!skip_icon_update)
 			update_icon()
 
@@ -65,7 +86,7 @@
 	if(istype(paper) && paper.loc == src)
 		paper.dropInto(loc)
 		LAZYREMOVE(notices, paper)
-		SSpersistence.forget_value(paper, /datum/persistent/paper)
+		SSpersistence.forget_value(paper, /datum/persistent/paper/noticeboard)
 		if(!skip_icon_update)
 			update_icon()
 
@@ -111,7 +132,7 @@
 			visible_message(SPAN_DANGER("\The [user] has dismantled \the [src]!"))
 			dismantle()
 		return
-	else if(istype(thing, /obj/item/weapon/paper) || istype(thing, /obj/item/weapon/photo))
+	else if(is_type_in_list(thing, can_pin))
 		if(jobban_isbanned(user, "Graffiti"))
 			to_chat(user, SPAN_WARNING("You are banned from leaving persistent information across rounds."))
 		else
@@ -119,7 +140,7 @@
 				add_fingerprint(user)
 				add_paper(thing)
 				to_chat(user, SPAN_NOTICE("You pin \the [thing] to \the [src]."))
-				SSpersistence.track_value(thing, /datum/persistent/paper)
+
 			else
 				to_chat(user, SPAN_WARNING("You hesitate, certain \the [thing] will not be seen among the many others already attached to \the [src]."))
 		return
@@ -161,8 +182,11 @@
 		. = TOPIC_HANDLED
 
 	if(href_list["remove"])
-		remove_paper(locate(href_list["remove"]))
+		var/obj/item/P = locate(href_list["remove"])
+		remove_paper(P)
 		add_fingerprint(user)
+		if (user)
+			user.put_in_hands(P)
 		. = TOPIC_REFRESH
 
 	if(href_list["write"])

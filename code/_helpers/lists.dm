@@ -770,3 +770,12 @@ proc/dd_sortedTextList(list/incoming)
 
 	//Phase 3: Return the sum of the reduced values
 	return sum(values)
+
+
+/proc/list_text_length(var/list/page)
+	var/total = 0
+	for (var/line in page)
+		if (istext(line))
+			total += length(line)
+
+	return total

@@ -24,6 +24,9 @@
 		/obj/item/weapon/paper_bundle,
 		/obj/item/weapon/sample)
 
+	var/filing_id = ""
+	//Like with noticeboards, this should be set at authortime in map instances or code subtypes. must be unique
+
 /obj/structure/filingcabinet/chestdrawer
 	name = "chest drawer"
 	icon_state = "chestdrawer"
@@ -41,6 +44,15 @@
 
 
 /obj/structure/filingcabinet/Initialize()
+	//Fallback behaviour.deterministically autogenerate a board ID based on coordinates.
+	//This is not ideal and will cause persistent things to break if moved elsewhere.
+	if (!filing_id)
+		filing_id = "x[x]y[y]z[z]"
+
+
+	//Add ourselves to the noticeboards list in the persistence subsystem. This allows documents being loaded to find this board
+	SSpersistence.filing_cabinets[filing_id] = src
+
 	for(var/obj/item/I in loc)
 		if(is_type_in_list(I, can_hold))
 			I.forceMove(src)
@@ -48,12 +60,8 @@
 
 /obj/structure/filingcabinet/attackby(obj/item/P as obj, mob/user as mob)
 	if(is_type_in_list(P, can_hold))
-		if(!user.unEquip(P, src))
-			return
-		add_fingerprint(user)
-		to_chat(user, "<span class='notice'>You put [P] in [src].</span>")
-		flick("[initial(icon_state)]-open",src)
-		updateUsrDialog()
+		insert_item(P, user, TRUE)
+
 	else
 		..()
 
@@ -76,6 +84,30 @@
 		//var/retrieveindex = text2num(href_list["retrieve"])
 		var/obj/item/P = locate(href_list["retrieve"])//contents[retrieveindex]
 		if(istype(P) && (P.loc == src) && src.Adjacent(usr))
-			usr.put_in_hands(P)
-			updateUsrDialog()
-			flick("[initial(icon_state)]-open",src)
+			remove_item(P, usr, TRUE)
+
+
+
+
+/obj/structure/filingcabinet/proc/insert_item(var/atom/movable/A, var/mob/user, var/animate = FALSE)
+	if(user)
+		if (A.loc == user && !user.unEquip(A, src))
+			return
+		add_fingerprint(user)
+		user.visible_message("[user] puts [A] into \the [src]")
+
+	A.forceMove(src)
+	SSpersistence.track_value(A, /datum/persistent/paper/filing)
+	if (animate)
+		flick("[initial(icon_state)]-open",src)
+
+/obj/structure/filingcabinet/proc/remove_item(var/atom/movable/A, var/mob/user, var/animate = FALSE)
+	A.forceMove(get_turf(src))
+	if(user)
+		add_fingerprint(user)
+		user.put_in_hands(A)
+		user.visible_message("[user] takes [A] out of \the [src]")
+
+	SSpersistence.forget_value(A, /datum/persistent/paper/filing)
+	if (animate)
+		flick("[initial(icon_state)]-open",src)

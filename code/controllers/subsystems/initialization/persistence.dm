@@ -5,6 +5,8 @@ SUBSYSTEM_DEF(persistence)
 	var/list/tracking_values = list()
 	var/list/persistence_datums = list()
 
+
+
 /datum/controller/subsystem/persistence/Initialize()
 	. = ..()
 	for(var/thing in subtypesof(/datum/persistent))

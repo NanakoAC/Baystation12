@@ -1,12 +1,17 @@
 /datum/persistent/filth
 	name = "filth"
-	tokens_per_line = 5
 	entries_expire_at = 5
 
-/datum/persistent/filth/LabelTokens(var/list/tokens)
-	var/list/labelled_tokens = ..()
-	labelled_tokens["path"] = text2path(tokens[LAZYLEN(labelled_tokens)+1])
-	return labelled_tokens
+/datum/persistent/filth/build_labels()
+	..()
+	LAZYADD(labels, "x")
+	LAZYADD(labels, "y")
+	LAZYADD(labels, "z")
+	LAZYADD(labels, "path")
+
+/datum/persistent/filth/GetValidTurf(var/list/tokens)
+	return locate(tokens["x"], tokens["y"], tokens["z"])
+
 
 /datum/persistent/filth/IsValidEntry(var/atom/entry)
 	. = ..() && entry.invisibility == 0
@@ -32,4 +37,8 @@
 
 /datum/persistent/filth/CompileEntry(var/atom/entry)
 	. = ..()
-	LAZYADD(., "[GetEntryPath(entry)]")
+	var/turf/T = get_turf(entry)
+	LAZYADD(., T.x)						//, "x"
+	LAZYADD(., T.y)						//, "y"
+	LAZYADD(., T.z)						//, "z"
+	LAZYADD(., "[GetEntryPath(entry)]")	//"path",
