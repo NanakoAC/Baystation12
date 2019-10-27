@@ -370,10 +370,8 @@
 		user.put_in_hands(B)
 
 		to_chat(user, "<span class='notice'>You clip the [P.name] to [(src.name == "paper") ? "the paper" : src.name].</span>")
-
-		B.pages.Add(src)
-		B.pages.Add(P)
-		B.update_icon()
+		B.insert_sheet_at(null, null, src)
+		B.insert_sheet_at(null, null, P)
 
 	else if(istype(P, /obj/item/weapon/pen))
 		if(icon_state == "scrap")

@@ -11,7 +11,7 @@
 	throw_speed = 1
 	layer = ABOVE_OBJ_LAYER
 	attack_verb = list("bapped")
-	var/page = 1    // current page
+	var/page = 0    // current page
 	var/list/pages = list()  // Ordered list of pages as they are to be displayed. Can be different order than src.contents.
 
 
@@ -63,8 +63,8 @@
 		return
 	else if (!user)
 		sheet.forceMove(src)
-
 	if (!index)
+
 		index = pages.len+1 //Zero or null index means just add it to the end
 
 	var/bundle_name = "paper bundle"

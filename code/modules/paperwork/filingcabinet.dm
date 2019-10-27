@@ -27,6 +27,11 @@
 	var/filing_id = ""
 	//Like with noticeboards, this should be set at authortime in map instances or code subtypes. must be unique
 
+	var/max_contents = 50 	//Maximum number of paper sheets this filing cabinet can contain
+		//Folders and bundles count as the sum of their contents, not including themselves
+
+	var/current_contents = 0
+
 /obj/structure/filingcabinet/chestdrawer
 	name = "chest drawer"
 	icon_state = "chestdrawer"
@@ -71,7 +76,8 @@
 		return
 
 	user.set_machine(src)
-	var/dat = list("<center><table>")
+	var/dat = list("Capacity: [current_contents]/[max_contents]")
+	dat += list("<center><table>")
 	for(var/obj/item/P in src)
 		dat += "<tr><td><a href='?src=\ref[src];retrieve=\ref[P]'>[P.name]</a></td></tr>"
 	dat += "</table></center>"
@@ -90,6 +96,11 @@
 
 
 /obj/structure/filingcabinet/proc/insert_item(var/atom/movable/A, var/mob/user, var/animate = FALSE)
+	var/newsize = get_content_size(A)
+	if (current_contents + newsize > max_contents)
+		to_chat(user, "You can't seem to fit [A] inside \the [src], it is too full. Remove some other things first!")
+		return
+
 	if(user)
 		if (A.loc == user && !user.unEquip(A, src))
 			return
@@ -98,10 +109,15 @@
 
 	A.forceMove(src)
 	SSpersistence.track_value(A, /datum/persistent/paper/filing)
+	current_contents += newsize
 	if (animate)
 		flick("[initial(icon_state)]-open",src)
 
 /obj/structure/filingcabinet/proc/remove_item(var/atom/movable/A, var/mob/user, var/animate = FALSE)
+
+	var/newsize = get_content_size(A)
+
+	current_contents -= newsize
 	A.forceMove(get_turf(src))
 	if(user)
 		add_fingerprint(user)
@@ -111,3 +127,23 @@
 	SSpersistence.forget_value(A, /datum/persistent/paper/filing)
 	if (animate)
 		flick("[initial(icon_state)]-open",src)
+
+
+/obj/structure/filingcabinet/proc/get_content_size(var/atom/movable/A)
+	if (istype(A, /obj/item/weapon/paper))
+		return 1 //A sheet of paper is one
+
+	//For containers, everything inside is 1 each. The container itself isn't counted, so as not to discourage players from using folders
+	//Nonpaper contents are counted too, although those won't be saved persistently
+	else if (istype(A, /obj/item/weapon/folder/) || istype(A, /obj/item/weapon/paper_bundle))
+		.=0
+		for (var/atom/B in A.contents)
+			.++
+
+	else return 1
+
+/obj/structure/filingcabinet/proc/update_content_size()
+	current_contents = 0
+
+	for (var/atom/A in contents)
+		current_contents += get_content_size(A)

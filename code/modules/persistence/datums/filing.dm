@@ -7,10 +7,15 @@
 /datum/controller/subsystem/persistence/var/list/filing_cabinets = list() //A list on the persistence controller to host noticeboards
 
 /datum/persistent/paper/filing
-
-/datum/persistent/paper/filing
 	name = "filed documents"
 
+
+/datum/persistent/paper/filing/Initialize()
+	.=..()
+	//After we're done initializing, update all the filing cabinet contents. Otherwise they won't have correct values
+	for (var/a in SSpersistence.filing_cabinets)
+		var/obj/structure/filingcabinet/N = SSpersistence.filing_cabinets[a]
+		N.update_content_size() //TODO: TEST THIS
 
 /datum/persistent/paper/filing/GetValidTurf(var/list/tokens)
 	var/obj/structure/filingcabinet/N = LAZYACCESS(SSpersistence.filing_cabinets, tokens["filing_id"])
