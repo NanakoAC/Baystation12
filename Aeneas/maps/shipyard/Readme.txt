@@ -1,1 +1,0 @@
-Purpose of the Shipyard map folder is to contain all temporary, debugging or testing maps, IE, looping example maps, reactor example maps.

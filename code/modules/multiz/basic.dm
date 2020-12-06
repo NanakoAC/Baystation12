@@ -20,11 +20,13 @@
 	if (!atom)
 		return null
 	var/datum/level/L = get_level_from_z(atom.z)
+
 	if (!L)
 		return null
 	var/datum/level/L2 = L.connections["[UP]"]
 	if (!L2)
 		return null
+
 	return L2.get_landing_point(atom, UP, _method, L)
 
 
@@ -34,7 +36,7 @@
 	var/datum/level/L = get_level_from_z(atom.z)
 	if (!L)
 		return null
-	var/datum/level/L2 = L.connections["[UP]"]
+	var/datum/level/L2 = L.connections["[DOWN]"]
 	if (!L2)
 		return null
 	return L2.get_landing_point(atom, DOWN, _method, L)

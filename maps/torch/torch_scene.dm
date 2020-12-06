@@ -4,7 +4,6 @@
 	//------------------
 	name = "SEV Torch" //The name of the location. This may be shown in interfaces and should be human-readable
 	id = "sev_torch"	  //ID must be unique, landmarks will use it to link levels to this scene datum
-	main_scene = TRUE
 
 //Base type of level, this one won't be instantiated but subtypes will
 /datum/level/torch

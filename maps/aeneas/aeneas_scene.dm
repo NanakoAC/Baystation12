@@ -1,13 +1,14 @@
-//This file sets up zlevels
+// This file sets up zlevels
 /datum/scene/aeneas
 	// Nikov 12/4/19
 	//------------------
-	name = "MSV Aeneas" 	//The name of the location. This may be shown in interfaces and should be human-readable
-	id = "msv_aeneas"	//ID must be unique, landmarks will use it to link levels to this scene datum
+	name = "MSV Aeneas" 	// The name of the location. This may be shown in interfaces and should be human-readable
+	id = "msv_aeneas"	    // ID must be unique, landmarks will use it to link levels to this scene datum
+	main_scene = TRUE
 
-//Base type of level, this one won't be instantiated but subtypes will
+// Base type of level, this one won't be instantiated but subtypes will
 /datum/level/aeneas
-	//Authortime
+	// Authortime
 	//----------------
 	name = "Deck 0" //Name of the level. This should NOT include the name of the scene, as that will be automatically prepended in most cases
 	id	=	"aeneas_deck0" //ID of the level, this must be unique, so do include the scene name in this case. this will be used for a landmark to find this level
@@ -148,6 +149,7 @@
 	name = "L0 Inner Ring"
 	id	=	"aeneas_level0"
 	connections = list(DOWN_S =  "aeneas_level1")
+	loop = LOOP_CYLINDRICAL_HORIZONTAL
 
 /obj/effect/landmark/map_data/aeneas/innerring
 	level_id	=	"aeneas_level0"
@@ -159,6 +161,7 @@
 	id	=	"aeneas_level1"
 	connections = list(UP_S = "aeneas_level0",
 	DOWN_S =  "aeneas_level2")
+	loop = LOOP_CYLINDRICAL_HORIZONTAL
 
 /obj/effect/landmark/map_data/aeneas/promenade
 	level_id	=	"aeneas_level1"
@@ -171,6 +174,7 @@
 	id	=	"aeneas_level2"
 	connections = list(UP_S = "aeneas_level1",
 	DOWN_S =  "aeneas_level3")
+	loop = LOOP_CYLINDRICAL_HORIZONTAL
 
 /obj/effect/landmark/map_data/aeneas/mezzanine
 	level_id	=	"aeneas_level2"
@@ -184,6 +188,7 @@
 
 	connections = list(UP_S = "aeneas_level2",
 	DOWN_S =  "aeneas_level4")
+	loop = LOOP_CYLINDRICAL_HORIZONTAL
 
 /obj/effect/landmark/map_data/aeneas/avenue
 	level_id	=	"aeneas_level3"
@@ -197,6 +202,7 @@
 
 	connections = list(UP_S = "aeneas_level3",
 	DOWN_S =  "aeneas_overboard")
+	loop = LOOP_CYLINDRICAL_HORIZONTAL
 
 
 /obj/effect/landmark/map_data/aeneas/outerring

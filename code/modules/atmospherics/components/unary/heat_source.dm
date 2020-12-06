@@ -147,3 +147,15 @@
 	. = ..(user)
 	if(panel_open)
 		to_chat(user, "The maintenance hatch is open.")
+
+// The Fauxclear Reactor. Nikov 7/20
+
+/obj/machinery/atmospherics/unary/heater/faux
+	name = "fauxclear reactor"
+	icon_state = "potato"
+
+	max_temperature = T20C + 5680
+	internal_volume = 5000	//L
+
+	max_power_rating = 10000000	//10 Mw reactor. Put the spurs to her.
+	power_setting = 100

@@ -9,6 +9,8 @@
  * Misc
  */
 
+
+
 //Returns a list in plain english as a string
 /proc/english_list(var/list/input, nothing_text = "nothing", and_text = " and ", comma_text = ", ", final_comma_text = "," )
 	switch(input.len)
@@ -177,6 +179,9 @@ Checks if a list has the same entries and values as an element of big.
 		listfrom.len--
 		return picked
 	return null
+
+
+ #define macropop(L, A)	A = L[length(L)];L.len--;
 
 //Returns the next element in parameter list after first appearance of parameter element. If it is the last element of the list or not present in list, returns first element.
 /proc/next_in_list(element, list/L)

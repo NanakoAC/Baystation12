@@ -21,11 +21,11 @@ a maximum limit on gas output pressure.
 Real turbopumps will shatter if they run at too high of an RPM. For our purposes a
 design limit of 1 megawatt of pumping power, tied to a display of 1,000 RPM, is the
 maximum safe limit. Beyond this, sparks fly similar to the TEG generator and
-the efficiency falls. At 2,000 RPM, the turbopump explodes.
+the efficiency falls. At 5,000 RPM, the turbopump explodes.
 
-The turbopump does not require electrical power to operate, but electrical power will
-allow remote operation of a bypass valve. This throttle moves gas from node1 to node 2
-without generating turbine power, using the pressure regulator framework.
+The turbopump does not require electrical power to operate by design; its function is
+purely mechanical.. Map design should include a pressure regulator as a throttle.
+This can either reduce the flow to the turbine input or allow a bypass.
 
 */
 
@@ -33,9 +33,9 @@ without generating turbine power, using the pressure regulator framework.
 	name = "turbopump"
 	desc = "A powerful turbopump. The other bits of a rocket are probably around here somewhere."
 	icon = 'icons/obj/pipeturbine.dmi'
-	icon_state = "turbopump"
+	icon_state = "tpump-assembled"
 	anchored = 1
-	density = 1
+	density = TRUE
 
 	idle_power_usage = 0
 	active_power_usage = 0
@@ -68,7 +68,7 @@ without generating turbine power, using the pressure regulator framework.
 	var/max_safe_energy = 1 MEGAWATTS
 
 	//Above this energy value, the turbopump immediately explodes
-	var/destruct_energy = 2 MEGAWATTS
+	var/destruct_energy = 5 MEGAWATTS
 
 	//The pump ports
 	input_volume = 1000
@@ -92,7 +92,7 @@ without generating turbine power, using the pressure regulator framework.
 	//UI Variables
 	//This data is stored for displaying info to user in ui
 	var/last_pump_flow = 0 	//Volume of gas moved through the pump, in Litres per second
-	var/last_pump_mass = 0	//Mass of gas moved through the pump, in Kilograms per second
+	var/last_pump_mass = 0	//Mass of gas moved through the pump, in Kilograms per second. Very meaningful to understanding the flow rate!
 	var/last_turbine_flow = 0
 	var/last_turbine_mass = 0
 
@@ -293,6 +293,7 @@ without generating turbine power, using the pressure regulator framework.
 
 
 /obj/machinery/atmospherics/binary/pump/turbo/update_icon()
+	icon_state = anchored ? "tpump-assembled" : "tpump-unassembled"
 	overlays.Cut()
 	if(pressure_delta > min_pressure_delta)
 		overlays += image('icons/obj/pipeturbine.dmi', "moto-turbopump")

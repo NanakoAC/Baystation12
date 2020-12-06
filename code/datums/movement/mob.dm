@@ -47,7 +47,15 @@
 	. = MOVEMENT_HANDLED
 	direction = mob.AdjustMovementDirection(direction)
 
-	var/turf/T = get_step(mob, direction)
+	var/turf/T
+	switch(direction)
+		if (UP)
+			T = GetAbove(mob)
+		if (DOWN)
+			T = GetBelow(mob)
+		else
+			T = get_step(mob, direction)
+
 	if(!mob.MayEnterTurf(T))
 		return
 
@@ -234,8 +242,25 @@
 	//We are now going to move
 	mob.moving = 1
 
-	direction = mob.AdjustMovementDirection(direction)
+
+
+
+
+	//direction = mob.AdjustMovementDirection(direction)
 	var/turf/old_turf = get_turf(mob)
+
+	/*
+	if(direction & (UP|DOWN))
+		var/turf/T
+		switch(direction)
+			if (UP)
+				T = GetAbove(mob)
+			if (DOWN)
+				T = GetBelow(mob)
+
+	else
+	*/
+
 	seamless_step(mob, direction)
 
 	// Something with pulling things

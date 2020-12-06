@@ -182,10 +182,15 @@
 	layer = RUNE_LAYER
 
 /obj/structure/stairs/Initialize()
+	.=..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/structure/stairs/LateInitialize()
 	for(var/turf/turf in locs)
 		var/turf/simulated/open/above = GetAbove(turf)
 		if(!above)
-			warning("Stair created without level above: ([loc.x], [loc.y], [loc.z])")
+			warning("Stair created without level above: [jumplink(loc)], we were given [jumplink(above)]")
+
 			return INITIALIZE_HINT_QDEL
 		if(!istype(above))
 			above.ChangeTurf(/turf/simulated/open)

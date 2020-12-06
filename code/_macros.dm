@@ -1,5 +1,7 @@
 #define PUBLIC_GAME_MODE SSticker.master_mode
 
+#define VECTOR_POOL_FULL	4000
+
 #define Clamp(value, low, high) 	(value <= low ? low : (value >= high ? high : value))
 #define CLAMP01(x) 		(Clamp(x, 0, 1))
 
@@ -198,3 +200,17 @@
 #define FONT_GIANT(X) "<font size='5'>[X]</font>"
 
 #define crash_with(X) crash_at(X, __FILE__, __LINE__)
+
+#define VECTOR_POOL_MAX	20000
+#define VECTOR_POOL_FULL	4000
+
+#define release_vector(A)	if (A && length(GLOB.vector_pool) < VECTOR_POOL_MAX){\
+GLOB.vector_pool += A;}\
+A = null;
+
+
+#define release_vector_list(A)	for (var/vector2/v in A) {release_vector(v)}\
+A = null;
+
+#define release_vector_assoc_list(A)	for (var/b in A) {release_vector(A[b])}\
+A = null;
